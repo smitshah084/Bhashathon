@@ -8,3 +8,4 @@ Preprocessing/play.py
 bin_data/
 raw_data/
 txt_data/
+Preprocessing/__pycache__/

@@ -1,0 +1,547 @@
+2025-03-02 15:08:39,621 - __main__ - INFO - Loaded model with vocabulary size: 50304
+2025-03-02 15:08:39,621 - __main__ - ERROR - Error testing tokenizer: name 'self' is not defined
+2025-03-02 15:11:45,322 - __main__ - INFO - Loaded model with vocabulary size: 50304
+2025-03-02 15:11:45,323 - __main__ - INFO - Original: 79
+2025-03-02 15:11:45,324 - __main__ - INFO - Tokens: ['▁o', '\x00\x00', ',', ',', '\x00', 'j', '\x00\x00', '1', '\x00\x00', '$', '\x00\x00', 'b', '\x00\x00\x00\x00\x00', 'q', '(', '\x00', 'j', '\x00\x00', '*', '\x00']...
+2025-03-02 15:11:45,324 - __main__ - INFO - # Tokens: 33
+2025-03-02 15:11:45,324 - __main__ - INFO - Original: 103
+2025-03-02 15:11:45,324 - __main__ - INFO - Tokens: ['▁', '\x00', '▁', '\x00\x00\x00', '2', '\x00', 'z', '7', '+', '\x00\x00\x00', '2', '\x00', 'na', '\x00\x00', '▁', '\x00\x00', 'o', '\x00', '2', 'p']...
+2025-03-02 15:11:45,324 - __main__ - INFO - # Tokens: 39
+2025-03-02 15:11:45,324 - __main__ - INFO - Original: 81
+2025-03-02 15:11:45,324 - __main__ - INFO - Tokens: ['▁(', 'y', 'u', '\x00', 'z', '{', '$', '\x00', 'tb', 'k', '+', '\x00', '(', '2', '\x00\x00\x00\x00\x00\x00', "'", '\x00', '2', '\x00\x00&', '(']...
+2025-03-02 15:11:45,324 - __main__ - INFO - # Tokens: 37
+2025-03-02 15:11:45,324 - __main__ - INFO - Original: 47
+2025-03-02 15:11:45,324 - __main__ - INFO - Tokens: ['▁', '\x00', '▁', '\x00', 'n', '\x00', 'a', '\x00\x00\x00', '2', '\x00', '%', '{\x00\x00\x00\x00', '2', '\x00', 'z', '\x00', 'q', 'b', '`\x00', 'f']...
+2025-03-02 15:11:45,324 - __main__ - INFO - # Tokens: 28
+2025-03-02 15:11:45,324 - __main__ - INFO - Original: 31
+2025-03-02 15:11:45,324 - __main__ - INFO - Tokens: ['▁', '\x00', 'b', '9', '\x00\x00\x00\x00', 'q', 'h', 'ft', '<', '6', '\x00', 'e', '\x00', 'o']
+2025-03-02 15:11:45,324 - __main__ - INFO - # Tokens: 14
+2025-03-02 15:11:45,324 - __main__ - INFO - Original: 56
+2025-03-02 15:11:45,324 - __main__ - INFO - Tokens: ['▁b', 'z', '\x00', '▁k', '.', '\x00', '$', '▁', '\x00', '-', '\x00\x00', '/', '\x00\x00', '2', ']', '▁', '}', '8', '\x00\x00', '▁a']...
+2025-03-02 15:11:45,324 - __main__ - INFO - # Tokens: 29
+2025-03-02 15:11:45,324 - __main__ - INFO - Original: 60
+2025-03-02 15:11:45,324 - __main__ - INFO - Tokens: ['▁', '\x00', '5', '\x00>#\x00\x00', '▁', '\x00', '3', '*', '\x00`\x00', '$', '\x00\x00', '2', '\x00\x00=\x00', 'z', '\x00', 'l', ')', 'g', '^', 'c']...
+2025-03-02 15:11:45,324 - __main__ - INFO - # Tokens: 25
+2025-03-02 15:11:45,324 - __main__ - INFO - Original: 75
+2025-03-02 15:11:45,324 - __main__ - INFO - Tokens: ['▁j', '\x00', '*', '+', '\x00', '▁', '\x00', '▁', '#', '▁*', '\x00', '$', 'b', 'v', '\x00', 'c', '\x00', 'j', '|\x00', 'z']...
+2025-03-02 15:11:45,324 - __main__ - INFO - # Tokens: 42
+2025-03-02 15:11:45,324 - __main__ - INFO - Original: 16
+2025-03-02 15:11:45,324 - __main__ - INFO - Tokens: ['▁', '\x00\x00', 'h', '▁+', '\x00\x00', 'dp', '\x00']
+2025-03-02 15:11:45,324 - __main__ - INFO - # Tokens: 7
+2025-03-02 15:11:45,324 - __main__ - INFO - Original: 63
+2025-03-02 15:11:45,324 - __main__ - INFO - Tokens: ['▁c', '\x00\x00', '2', '\x00', '/', '\x00', 'z', 'l', '+', ')', 'p', '\x00', '"', '\x00', '▁', '.', ';', '9', '#\x00', 'a']...
+2025-03-02 15:11:45,324 - __main__ - INFO - # Tokens: 35
+2025-03-02 15:12:06,338 - __main__ - INFO - Loaded model with vocabulary size: 50304
+2025-03-02 15:12:06,340 - __main__ - INFO - Original: 34
+2025-03-02 15:12:06,340 - __main__ - INFO - # Tokens: 21
+2025-03-02 15:12:06,340 - __main__ - INFO - Original: 103
+2025-03-02 15:12:06,340 - __main__ - INFO - # Tokens: 51
+2025-03-02 15:12:06,340 - __main__ - INFO - Original: 47
+2025-03-02 15:12:06,340 - __main__ - INFO - # Tokens: 28
+2025-03-02 15:12:06,340 - __main__ - INFO - Original: 103
+2025-03-02 15:12:06,340 - __main__ - INFO - # Tokens: 41
+2025-03-02 15:12:06,340 - __main__ - INFO - Original: 34
+2025-03-02 15:12:06,340 - __main__ - INFO - # Tokens: 21
+2025-03-02 15:12:06,340 - __main__ - INFO - Original: 65
+2025-03-02 15:12:06,340 - __main__ - INFO - # Tokens: 36
+2025-03-02 15:12:06,341 - __main__ - INFO - Original: 1
+2025-03-02 15:12:06,341 - __main__ - INFO - # Tokens: 2
+2025-03-02 15:12:06,341 - __main__ - INFO - Original: 26
+2025-03-02 15:12:06,341 - __main__ - INFO - # Tokens: 14
+2025-03-02 15:12:06,341 - __main__ - INFO - Original: 7
+2025-03-02 15:12:06,341 - __main__ - INFO - # Tokens: 6
+2025-03-02 15:12:06,341 - __main__ - INFO - Original: 103
+2025-03-02 15:12:06,341 - __main__ - INFO - # Tokens: 63
+2025-03-02 15:13:44,937 - __main__ - INFO - Loaded model with vocabulary size: 50304
+2025-03-02 15:13:44,938 - __main__ - ERROR - Error testing tokenizer: 'PosixPath' object is not iterable
+2025-03-02 15:14:18,176 - __main__ - INFO - Loaded model with vocabulary size: 50304
+2025-03-02 15:14:18,176 - __main__ - ERROR - Error testing tokenizer: 'PosixPath' object is not iterable
+2025-03-02 15:15:54,243 - __main__ - INFO - Loaded model with vocabulary size: 50304
+2025-03-02 15:16:14,550 - __main__ - INFO - Loaded model with vocabulary size: 50304
+2025-03-02 15:24:56,410 - __main__ - INFO - Loaded model with vocabulary size: 50304
+2025-03-02 15:24:56,411 - __main__ - INFO - Original: 80 # Tokens: 23 ratio 0.2875
+2025-03-02 15:24:56,412 - __main__ - INFO - # Tokens: 23
+2025-03-02 15:24:56,412 - __main__ - INFO - Original: 16 # Tokens: 4 ratio 0.25
+2025-03-02 15:24:56,412 - __main__ - INFO - # Tokens: 4
+2025-03-02 15:24:56,412 - __main__ - INFO - Original: 52 # Tokens: 14 ratio 0.2692307692307692
+2025-03-02 15:24:56,412 - __main__ - INFO - # Tokens: 14
+2025-03-02 15:24:56,412 - __main__ - INFO - Original: 39 # Tokens: 10 ratio 0.2564102564102564
+2025-03-02 15:24:56,412 - __main__ - INFO - # Tokens: 10
+2025-03-02 15:24:56,412 - __main__ - INFO - Original: 31 # Tokens: 10 ratio 0.3225806451612903
+2025-03-02 15:24:56,412 - __main__ - INFO - # Tokens: 10
+2025-03-02 15:24:56,412 - __main__ - INFO - Original: 57 # Tokens: 14 ratio 0.24561403508771928
+2025-03-02 15:24:56,412 - __main__ - INFO - # Tokens: 14
+2025-03-02 15:24:56,412 - __main__ - INFO - Original: 67 # Tokens: 24 ratio 0.3582089552238806
+2025-03-02 15:24:56,412 - __main__ - INFO - # Tokens: 24
+2025-03-02 15:24:56,412 - __main__ - INFO - Original: 24 # Tokens: 8 ratio 0.3333333333333333
+2025-03-02 15:24:56,412 - __main__ - INFO - # Tokens: 8
+2025-03-02 15:24:56,412 - __main__ - INFO - Original: 25 # Tokens: 8 ratio 0.32
+2025-03-02 15:24:56,412 - __main__ - INFO - # Tokens: 8
+2025-03-02 15:24:56,412 - __main__ - INFO - Original: 33 # Tokens: 12 ratio 0.36363636363636365
+2025-03-02 15:24:56,412 - __main__ - INFO - # Tokens: 12
+2025-03-02 15:24:56,413 - __main__ - INFO - Original: 103 # Tokens: 32 ratio 0.3106796116504854
+2025-03-02 15:24:56,413 - __main__ - INFO - # Tokens: 32
+2025-03-02 15:24:56,413 - __main__ - INFO - Original: 31 # Tokens: 10 ratio 0.3225806451612903
+2025-03-02 15:24:56,413 - __main__ - INFO - # Tokens: 10
+2025-03-02 15:24:56,413 - __main__ - INFO - Original: 19 # Tokens: 6 ratio 0.3157894736842105
+2025-03-02 15:24:56,413 - __main__ - INFO - # Tokens: 6
+2025-03-02 15:24:56,413 - __main__ - INFO - Original: 23 # Tokens: 8 ratio 0.34782608695652173
+2025-03-02 15:24:56,413 - __main__ - INFO - # Tokens: 8
+2025-03-02 15:24:56,413 - __main__ - INFO - Original: 17 # Tokens: 5 ratio 0.29411764705882354
+2025-03-02 15:24:56,413 - __main__ - INFO - # Tokens: 5
+2025-03-02 15:24:56,413 - __main__ - INFO - Original: 25 # Tokens: 8 ratio 0.32
+2025-03-02 15:24:56,413 - __main__ - INFO - # Tokens: 8
+2025-03-02 15:24:56,413 - __main__ - INFO - Original: 96 # Tokens: 32 ratio 0.3333333333333333
+2025-03-02 15:24:56,413 - __main__ - INFO - # Tokens: 32
+2025-03-02 15:24:56,413 - __main__ - INFO - Original: 51 # Tokens: 20 ratio 0.39215686274509803
+2025-03-02 15:24:56,414 - __main__ - INFO - # Tokens: 20
+2025-03-02 15:24:56,414 - __main__ - INFO - Original: 13 # Tokens: 3 ratio 0.23076923076923078
+2025-03-02 15:24:56,414 - __main__ - INFO - # Tokens: 3
+2025-03-02 15:24:56,414 - __main__ - INFO - Original: 103 # Tokens: 32 ratio 0.3106796116504854
+2025-03-02 15:24:56,414 - __main__ - INFO - # Tokens: 32
+2025-03-02 15:24:56,414 - __main__ - INFO - Original: 77 # Tokens: 17 ratio 0.22077922077922077
+2025-03-02 15:24:56,414 - __main__ - INFO - # Tokens: 17
+2025-03-02 15:24:56,414 - __main__ - INFO - Original: 28 # Tokens: 7 ratio 0.25
+2025-03-02 15:24:56,414 - __main__ - INFO - # Tokens: 7
+2025-03-02 15:24:56,414 - __main__ - INFO - Original: 45 # Tokens: 12 ratio 0.26666666666666666
+2025-03-02 15:24:56,414 - __main__ - INFO - # Tokens: 12
+2025-03-02 15:24:56,414 - __main__ - INFO - Original: 103 # Tokens: 22 ratio 0.21359223300970873
+2025-03-02 15:24:56,414 - __main__ - INFO - # Tokens: 22
+2025-03-02 15:24:56,415 - __main__ - INFO - Original: 32 # Tokens: 9 ratio 0.28125
+2025-03-02 15:24:56,415 - __main__ - INFO - # Tokens: 9
+2025-03-02 15:24:56,415 - __main__ - INFO - Original: 58 # Tokens: 13 ratio 0.22413793103448276
+2025-03-02 15:24:56,415 - __main__ - INFO - # Tokens: 13
+2025-03-02 15:24:56,415 - __main__ - INFO - Original: 66 # Tokens: 16 ratio 0.24242424242424243
+2025-03-02 15:24:56,415 - __main__ - INFO - # Tokens: 16
+2025-03-02 15:24:56,415 - __main__ - INFO - Original: 42 # Tokens: 14 ratio 0.3333333333333333
+2025-03-02 15:24:56,415 - __main__ - INFO - # Tokens: 14
+2025-03-02 15:24:56,415 - __main__ - INFO - Original: 59 # Tokens: 11 ratio 0.1864406779661017
+2025-03-02 15:24:56,415 - __main__ - INFO - # Tokens: 11
+2025-03-02 15:24:56,415 - __main__ - INFO - Original: 76 # Tokens: 28 ratio 0.3684210526315789
+2025-03-02 15:24:56,415 - __main__ - INFO - # Tokens: 28
+2025-03-02 15:24:56,416 - __main__ - INFO - Original: 64 # Tokens: 17 ratio 0.265625
+2025-03-02 15:24:56,416 - __main__ - INFO - # Tokens: 17
+2025-03-02 15:24:56,416 - __main__ - INFO - Original: 103 # Tokens: 29 ratio 0.2815533980582524
+2025-03-02 15:24:56,416 - __main__ - INFO - # Tokens: 29
+2025-03-02 15:24:56,416 - __main__ - INFO - Original: 93 # Tokens: 20 ratio 0.21505376344086022
+2025-03-02 15:24:56,416 - __main__ - INFO - # Tokens: 20
+2025-03-02 15:24:56,416 - __main__ - INFO - Original: 25 # Tokens: 7 ratio 0.28
+2025-03-02 15:24:56,416 - __main__ - INFO - # Tokens: 7
+2025-03-02 15:24:56,416 - __main__ - INFO - Original: 103 # Tokens: 32 ratio 0.3106796116504854
+2025-03-02 15:24:56,416 - __main__ - INFO - # Tokens: 32
+2025-03-02 15:24:56,416 - __main__ - INFO - Original: 29 # Tokens: 6 ratio 0.20689655172413793
+2025-03-02 15:24:56,416 - __main__ - INFO - # Tokens: 6
+2025-03-02 15:24:56,416 - __main__ - INFO - Original: 103 # Tokens: 24 ratio 0.23300970873786409
+2025-03-02 15:24:56,416 - __main__ - INFO - # Tokens: 24
+2025-03-02 15:24:56,416 - __main__ - INFO - Original: 103 # Tokens: 29 ratio 0.2815533980582524
+2025-03-02 15:24:56,416 - __main__ - INFO - # Tokens: 29
+2025-03-02 15:24:56,417 - __main__ - INFO - Original: 103 # Tokens: 28 ratio 0.27184466019417475
+2025-03-02 15:24:56,417 - __main__ - INFO - # Tokens: 28
+2025-03-02 15:24:56,417 - __main__ - INFO - Original: 103 # Tokens: 24 ratio 0.23300970873786409
+2025-03-02 15:24:56,417 - __main__ - INFO - # Tokens: 24
+2025-03-02 15:24:56,418 - __main__ - INFO - Original: 103 # Tokens: 39 ratio 0.3786407766990291
+2025-03-02 15:24:56,418 - __main__ - INFO - # Tokens: 39
+2025-03-02 15:24:56,418 - __main__ - INFO - Original: 84 # Tokens: 27 ratio 0.32142857142857145
+2025-03-02 15:24:56,418 - __main__ - INFO - # Tokens: 27
+2025-03-02 15:24:56,418 - __main__ - INFO - Original: 103 # Tokens: 26 ratio 0.2524271844660194
+2025-03-02 15:24:56,418 - __main__ - INFO - # Tokens: 26
+2025-03-02 15:24:56,418 - __main__ - INFO - Original: 49 # Tokens: 10 ratio 0.20408163265306123
+2025-03-02 15:24:56,418 - __main__ - INFO - # Tokens: 10
+2025-03-02 15:24:56,418 - __main__ - INFO - Original: 53 # Tokens: 18 ratio 0.33962264150943394
+2025-03-02 15:24:56,418 - __main__ - INFO - # Tokens: 18
+2025-03-02 15:24:56,418 - __main__ - INFO - Original: 103 # Tokens: 30 ratio 0.2912621359223301
+2025-03-02 15:24:56,418 - __main__ - INFO - # Tokens: 30
+2025-03-02 15:24:56,418 - __main__ - INFO - Original: 36 # Tokens: 8 ratio 0.2222222222222222
+2025-03-02 15:24:56,418 - __main__ - INFO - # Tokens: 8
+2025-03-02 15:24:56,418 - __main__ - INFO - Original: 63 # Tokens: 17 ratio 0.2698412698412698
+2025-03-02 15:24:56,418 - __main__ - INFO - # Tokens: 17
+2025-03-02 15:24:56,418 - __main__ - INFO - Original: 22 # Tokens: 5 ratio 0.22727272727272727
+2025-03-02 15:24:56,418 - __main__ - INFO - # Tokens: 5
+2025-03-02 15:24:56,418 - __main__ - INFO - Original: 103 # Tokens: 37 ratio 0.3592233009708738
+2025-03-02 15:24:56,418 - __main__ - INFO - # Tokens: 37
+2025-03-02 15:24:56,419 - __main__ - INFO - Original: 103 # Tokens: 33 ratio 0.32038834951456313
+2025-03-02 15:24:56,419 - __main__ - INFO - # Tokens: 33
+2025-03-02 15:24:56,419 - __main__ - INFO - Original: 42 # Tokens: 15 ratio 0.35714285714285715
+2025-03-02 15:24:56,419 - __main__ - INFO - # Tokens: 15
+2025-03-02 15:24:56,419 - __main__ - INFO - Original: 103 # Tokens: 31 ratio 0.30097087378640774
+2025-03-02 15:24:56,419 - __main__ - INFO - # Tokens: 31
+2025-03-02 15:24:56,419 - __main__ - INFO - Original: 37 # Tokens: 12 ratio 0.32432432432432434
+2025-03-02 15:24:56,419 - __main__ - INFO - # Tokens: 12
+2025-03-02 15:24:56,419 - __main__ - INFO - Original: 32 # Tokens: 12 ratio 0.375
+2025-03-02 15:24:56,419 - __main__ - INFO - # Tokens: 12
+2025-03-02 15:24:56,419 - __main__ - INFO - Original: 103 # Tokens: 33 ratio 0.32038834951456313
+2025-03-02 15:24:56,419 - __main__ - INFO - # Tokens: 33
+2025-03-02 15:24:56,419 - __main__ - INFO - Original: 103 # Tokens: 32 ratio 0.3106796116504854
+2025-03-02 15:24:56,419 - __main__ - INFO - # Tokens: 32
+2025-03-02 15:24:56,419 - __main__ - INFO - Original: 66 # Tokens: 27 ratio 0.4090909090909091
+2025-03-02 15:24:56,419 - __main__ - INFO - # Tokens: 27
+2025-03-02 15:24:56,420 - __main__ - INFO - Original: 103 # Tokens: 33 ratio 0.32038834951456313
+2025-03-02 15:24:56,420 - __main__ - INFO - # Tokens: 33
+2025-03-02 15:24:56,420 - __main__ - INFO - Original: 103 # Tokens: 29 ratio 0.2815533980582524
+2025-03-02 15:24:56,420 - __main__ - INFO - # Tokens: 29
+Loaded model with vocabulary size: 50304
+Original: 42 # Tokens: 11 ratio 0.2619047619047619
+# Tokens: 11
+Original: 31 # Tokens: 10 ratio 0.3225806451612903
+# Tokens: 10
+Original: 20 # Tokens: 8 ratio 0.4
+# Tokens: 8
+Original: 67 # Tokens: 24 ratio 0.3582089552238806
+# Tokens: 24
+Original: 46 # Tokens: 14 ratio 0.30434782608695654
+# Tokens: 14
+Original: 36 # Tokens: 9 ratio 0.25
+# Tokens: 9
+Original: 103 # Tokens: 32 ratio 0.3106796116504854
+# Tokens: 32
+Original: 43 # Tokens: 11 ratio 0.2558139534883721
+# Tokens: 11
+Original: 41 # Tokens: 11 ratio 0.2682926829268293
+# Tokens: 11
+Original: 40 # Tokens: 11 ratio 0.275
+# Tokens: 11
+Original: 64 # Tokens: 17 ratio 0.265625
+# Tokens: 17
+Original: 34 # Tokens: 16 ratio 0.47058823529411764
+# Tokens: 16
+Original: 61 # Tokens: 21 ratio 0.3442622950819672
+# Tokens: 21
+Original: 94 # Tokens: 32 ratio 0.3404255319148936
+# Tokens: 32
+Original: 44 # Tokens: 11 ratio 0.25
+# Tokens: 11
+Original: 66 # Tokens: 14 ratio 0.21212121212121213
+# Tokens: 14
+Original: 59 # Tokens: 16 ratio 0.2711864406779661
+# Tokens: 16
+Original: 19 # Tokens: 6 ratio 0.3157894736842105
+# Tokens: 6
+Original: 103 # Tokens: 29 ratio 0.2815533980582524
+# Tokens: 29
+Original: 103 # Tokens: 39 ratio 0.3786407766990291
+# Tokens: 39
+Original: 103 # Tokens: 24 ratio 0.23300970873786409
+# Tokens: 24
+Original: 86 # Tokens: 16 ratio 0.18604651162790697
+# Tokens: 16
+Original: 16 # Tokens: 3 ratio 0.1875
+# Tokens: 3
+Original: 45 # Tokens: 12 ratio 0.26666666666666666
+# Tokens: 12
+Original: 52 # Tokens: 8 ratio 0.15384615384615385
+# Tokens: 8
+Original: 103 # Tokens: 24 ratio 0.23300970873786409
+# Tokens: 24
+Original: 36 # Tokens: 8 ratio 0.2222222222222222
+# Tokens: 8
+Original: 58 # Tokens: 14 ratio 0.2413793103448276
+# Tokens: 14
+Original: 40 # Tokens: 9 ratio 0.225
+# Tokens: 9
+Original: 103 # Tokens: 22 ratio 0.21359223300970873
+# Tokens: 22
+Original: 20 # Tokens: 7 ratio 0.35
+# Tokens: 7
+Original: 24 # Tokens: 6 ratio 0.25
+# Tokens: 6
+Original: 29 # Tokens: 7 ratio 0.2413793103448276
+# Tokens: 7
+Original: 103 # Tokens: 25 ratio 0.24271844660194175
+# Tokens: 25
+Original: 52 # Tokens: 14 ratio 0.2692307692307692
+# Tokens: 14
+Original: 69 # Tokens: 17 ratio 0.2463768115942029
+# Tokens: 17
+Original: 24 # Tokens: 6 ratio 0.25
+# Tokens: 6
+Original: 30 # Tokens: 8 ratio 0.26666666666666666
+# Tokens: 8
+Original: 31 # Tokens: 11 ratio 0.3548387096774194
+# Tokens: 11
+Original: 25 # Tokens: 7 ratio 0.28
+# Tokens: 7
+Original: 26 # Tokens: 12 ratio 0.46153846153846156
+# Tokens: 12
+Original: 103 # Tokens: 19 ratio 0.18446601941747573
+# Tokens: 19
+Original: 55 # Tokens: 12 ratio 0.21818181818181817
+# Tokens: 12
+Original: 31 # Tokens: 11 ratio 0.3548387096774194
+# Tokens: 11
+Original: 67 # Tokens: 11 ratio 0.16417910447761194
+# Tokens: 11
+Original: 35 # Tokens: 11 ratio 0.3142857142857143
+# Tokens: 11
+Original: 43 # Tokens: 7 ratio 0.16279069767441862
+# Tokens: 7
+Original: 92 # Tokens: 19 ratio 0.20652173913043478
+# Tokens: 19
+Original: 49 # Tokens: 13 ratio 0.2653061224489796
+# Tokens: 13
+Original: 53 # Tokens: 12 ratio 0.22641509433962265
+# Tokens: 12
+Original: 76 # Tokens: 25 ratio 0.32894736842105265
+# Tokens: 25
+Original: 41 # Tokens: 14 ratio 0.34146341463414637
+# Tokens: 14
+Original: 50 # Tokens: 10 ratio 0.2
+# Tokens: 10
+Original: 103 # Tokens: 31 ratio 0.30097087378640774
+# Tokens: 31
+Original: 74 # Tokens: 22 ratio 0.2972972972972973
+# Tokens: 22
+Original: 42 # Tokens: 8 ratio 0.19047619047619047
+# Tokens: 8
+Original: 103 # Tokens: 33 ratio 0.32038834951456313
+# Tokens: 33
+Original: 32 # Tokens: 12 ratio 0.375
+# Tokens: 12
+Original: 103 # Tokens: 31 ratio 0.30097087378640774
+# Tokens: 31
+Original: 103 # Tokens: 33 ratio 0.32038834951456313
+# Tokens: 33
+Loaded model with vocabulary size: 50304
+Original: 41 # Tokens: 11 ratio 0.2682926829268293
+Original: 71 # Tokens: 18 ratio 0.2535211267605634
+Original: 23 # Tokens: 7 ratio 0.30434782608695654
+Original: 45 # Tokens: 11 ratio 0.24444444444444444
+Original: 44 # Tokens: 17 ratio 0.38636363636363635
+Original: 25 # Tokens: 7 ratio 0.28
+Original: 75 # Tokens: 19 ratio 0.25333333333333335
+Original: 103 # Tokens: 32 ratio 0.3106796116504854
+Original: 28 # Tokens: 7 ratio 0.25
+Original: 47 # Tokens: 11 ratio 0.23404255319148937
+Original: 103 # Tokens: 25 ratio 0.24271844660194175
+Original: 98 # Tokens: 23 ratio 0.23469387755102042
+Original: 13 # Tokens: 3 ratio 0.23076923076923078
+Original: 35 # Tokens: 8 ratio 0.22857142857142856
+Original: 103 # Tokens: 32 ratio 0.3106796116504854
+Original: 74 # Tokens: 17 ratio 0.22972972972972974
+Original: 103 # Tokens: 37 ratio 0.3592233009708738
+Original: 51 # Tokens: 15 ratio 0.29411764705882354
+Original: 83 # Tokens: 18 ratio 0.21686746987951808
+Original: 41 # Tokens: 10 ratio 0.24390243902439024
+Original: 37 # Tokens: 7 ratio 0.1891891891891892
+Original: 33 # Tokens: 10 ratio 0.30303030303030304
+Original: 103 # Tokens: 23 ratio 0.22330097087378642
+Original: 77 # Tokens: 22 ratio 0.2857142857142857
+Original: 84 # Tokens: 14 ratio 0.16666666666666666
+Original: 103 # Tokens: 39 ratio 0.3786407766990291
+Original: 103 # Tokens: 22 ratio 0.21359223300970873
+Original: 44 # Tokens: 8 ratio 0.18181818181818182
+Original: 14 # Tokens: 4 ratio 0.2857142857142857
+Original: 47 # Tokens: 12 ratio 0.2553191489361702
+Original: 17 # Tokens: 9 ratio 0.5294117647058824
+Original: 103 # Tokens: 26 ratio 0.2524271844660194
+Original: 41 # Tokens: 14 ratio 0.34146341463414637
+Original: 29 # Tokens: 6 ratio 0.20689655172413793
+Original: 103 # Tokens: 29 ratio 0.2815533980582524
+Original: 103 # Tokens: 32 ratio 0.3106796116504854
+Original: 25 # Tokens: 7 ratio 0.28
+Original: 64 # Tokens: 17 ratio 0.265625
+Original: 79 # Tokens: 19 ratio 0.24050632911392406
+Original: 103 # Tokens: 30 ratio 0.2912621359223301
+Original: 31 # Tokens: 11 ratio 0.3548387096774194
+Original: 39 # Tokens: 12 ratio 0.3076923076923077
+Original: 37 # Tokens: 10 ratio 0.2702702702702703
+Original: 92 # Tokens: 19 ratio 0.20652173913043478
+Original: 37 # Tokens: 15 ratio 0.40540540540540543
+Original: 49 # Tokens: 13 ratio 0.2653061224489796
+Original: 31 # Tokens: 12 ratio 0.3870967741935484
+Original: 40 # Tokens: 13 ratio 0.325
+Original: 39 # Tokens: 11 ratio 0.28205128205128205
+Original: 58 # Tokens: 20 ratio 0.3448275862068966
+Original: 103 # Tokens: 35 ratio 0.33980582524271846
+Original: 51 # Tokens: 15 ratio 0.29411764705882354
+Original: 52 # Tokens: 15 ratio 0.28846153846153844
+Original: 80 # Tokens: 24 ratio 0.3
+Original: 41 # Tokens: 14 ratio 0.34146341463414637
+Original: 67 # Tokens: 18 ratio 0.26865671641791045
+Original: 100 # Tokens: 27 ratio 0.27
+Original: 103 # Tokens: 23 ratio 0.22330097087378642
+Original: 26 # Tokens: 9 ratio 0.34615384615384615
+Original: 103 # Tokens: 29 ratio 0.2815533980582524
+Loaded model with vocabulary size: 50304
+Original: 22 # Tokens: 7 ratio 0.32
+Original: 35 # Tokens: 10 ratio 0.29
+Original: 24 # Tokens: 10 ratio 0.42
+Original: 15 # Tokens: 4 ratio 0.27
+Original: 67 # Tokens: 24 ratio 0.36
+Original: 77 # Tokens: 19 ratio 0.25
+Original: 75 # Tokens: 19 ratio 0.25
+Original: 33 # Tokens: 12 ratio 0.36
+Original: 20 # Tokens: 8 ratio 0.40
+Original: 31 # Tokens: 10 ratio 0.32
+Original: 83 # Tokens: 22 ratio 0.27
+Original: 25 # Tokens: 5 ratio 0.20
+Original: 98 # Tokens: 23 ratio 0.23
+Original: 33 # Tokens: 10 ratio 0.30
+Original: 26 # Tokens: 8 ratio 0.31
+Original: 22 # Tokens: 6 ratio 0.27
+Original: 31 # Tokens: 7 ratio 0.23
+Original: 13 # Tokens: 3 ratio 0.23
+Original: 103 # Tokens: 30 ratio 0.29
+Original: 100 # Tokens: 24 ratio 0.24
+Original: 38 # Tokens: 27 ratio 0.71
+Original: 103 # Tokens: 24 ratio 0.23
+Original: 103 # Tokens: 23 ratio 0.22
+Original: 29 # Tokens: 6 ratio 0.21
+Original: 103 # Tokens: 32 ratio 0.31
+Original: 40 # Tokens: 9 ratio 0.23
+Original: 42 # Tokens: 14 ratio 0.33
+Original: 103 # Tokens: 24 ratio 0.23
+Original: 76 # Tokens: 28 ratio 0.37
+Original: 70 # Tokens: 18 ratio 0.26
+Original: 103 # Tokens: 30 ratio 0.29
+Original: 103 # Tokens: 26 ratio 0.25
+Original: 103 # Tokens: 26 ratio 0.25
+Original: 103 # Tokens: 29 ratio 0.28
+Original: 17 # Tokens: 4 ratio 0.24
+Original: 17 # Tokens: 9 ratio 0.53
+Original: 103 # Tokens: 29 ratio 0.28
+Original: 26 # Tokens: 9 ratio 0.35
+Original: 103 # Tokens: 24 ratio 0.23
+Original: 103 # Tokens: 28 ratio 0.27
+Original: 26 # Tokens: 9 ratio 0.35
+Original: 33 # Tokens: 13 ratio 0.39
+Original: 31 # Tokens: 12 ratio 0.39
+Original: 49 # Tokens: 10 ratio 0.20
+Original: 58 # Tokens: 13 ratio 0.22
+Original: 103 # Tokens: 28 ratio 0.27
+Original: 103 # Tokens: 29 ratio 0.28
+Original: 103 # Tokens: 21 ratio 0.20
+Original: 75 # Tokens: 17 ratio 0.23
+Original: 27 # Tokens: 12 ratio 0.44
+Original: 50 # Tokens: 10 ratio 0.20
+Original: 42 # Tokens: 8 ratio 0.19
+Original: 103 # Tokens: 33 ratio 0.32
+Original: 66 # Tokens: 27 ratio 0.41
+Original: 103 # Tokens: 31 ratio 0.30
+Original: 50 # Tokens: 17 ratio 0.34
+Original: 62 # Tokens: 22 ratio 0.35
+Original: 62 # Tokens: 17 ratio 0.27
+Original: 103 # Tokens: 23 ratio 0.22
+Original: 76 # Tokens: 25 ratio 0.33
+Loaded model with vocabulary size: 50304
+Original: 32 # Tokens: 12 ratio 0.38
+Original: 103 # Tokens: 28 ratio 0.27
+Original: 36 # Tokens: 10 ratio 0.28
+Original: 25 # Tokens: 8 ratio 0.32
+Original: 26 # Tokens: 7 ratio 0.27
+Original: 25 # Tokens: 7 ratio 0.28
+Original: 35 # Tokens: 10 ratio 0.29
+Original: 55 # Tokens: 15 ratio 0.27
+Original: 15 # Tokens: 4 ratio 0.27
+Original: 103 # Tokens: 25 ratio 0.24
+Original: 34 # Tokens: 16 ratio 0.47
+Original: 103 # Tokens: 28 ratio 0.27
+Original: 103 # Tokens: 23 ratio 0.22
+Original: 28 # Tokens: 9 ratio 0.32
+Original: 89 # Tokens: 20 ratio 0.22
+Original: 103 # Tokens: 32 ratio 0.31
+Original: 23 # Tokens: 6 ratio 0.26
+Original: 27 # Tokens: 10 ratio 0.37
+Original: 50 # Tokens: 13 ratio 0.26
+Original: 53 # Tokens: 17 ratio 0.32
+Original: 29 # Tokens: 6 ratio 0.21
+Original: 103 # Tokens: 22 ratio 0.21
+Original: 76 # Tokens: 28 ratio 0.37
+Original: 40 # Tokens: 10 ratio 0.25
+Original: 49 # Tokens: 11 ratio 0.22
+Original: 32 # Tokens: 11 ratio 0.34
+Original: 44 # Tokens: 8 ratio 0.18
+Original: 37 # Tokens: 7 ratio 0.19
+Original: 103 # Tokens: 29 ratio 0.28
+Original: 34 # Tokens: 6 ratio 0.18
+Original: 103 # Tokens: 26 ratio 0.25
+Original: 28 # Tokens: 8 ratio 0.29
+Original: 29 # Tokens: 12 ratio 0.41
+Original: 40 # Tokens: 15 ratio 0.38
+Original: 64 # Tokens: 17 ratio 0.27
+Original: 103 # Tokens: 22 ratio 0.21
+Original: 60 # Tokens: 14 ratio 0.23
+Original: 26 # Tokens: 9 ratio 0.35
+Original: 103 # Tokens: 28 ratio 0.27
+Original: 56 # Tokens: 13 ratio 0.23
+Original: 26 # Tokens: 12 ratio 0.46
+Original: 103 # Tokens: 39 ratio 0.38
+Original: 28 # Tokens: 10 ratio 0.36
+Original: 65 # Tokens: 15 ratio 0.23
+Original: 40 # Tokens: 13 ratio 0.33
+Original: 90 # Tokens: 25 ratio 0.28
+Original: 75 # Tokens: 17 ratio 0.23
+Original: 63 # Tokens: 13 ratio 0.21
+Original: 39 # Tokens: 11 ratio 0.28
+Original: 40 # Tokens: 14 ratio 0.35
+Original: 46 # Tokens: 12 ratio 0.26
+Original: 11 # Tokens: 6 ratio 0.55
+Original: 97 # Tokens: 40 ratio 0.41
+Original: 46 # Tokens: 12 ratio 0.26
+Original: 34 # Tokens: 7 ratio 0.21
+Original: 91 # Tokens: 29 ratio 0.32
+Original: 103 # Tokens: 25 ratio 0.24
+Original: 99 # Tokens: 28 ratio 0.28
+Original: 74 # Tokens: 22 ratio 0.30
+Original: 52 # Tokens: 15 ratio 0.29
+Loaded model with vocabulary size: 50304
+Original: 42 # Tokens: 11 ratio 0.26
+Original: 30 # Tokens: 9 ratio 0.30
+Original: 42 # Tokens: 11 ratio 0.26
+Original: 36 # Tokens: 9 ratio 0.25
+Original: 42 # Tokens: 13 ratio 0.31
+Original: 103 # Tokens: 28 ratio 0.27
+Original: 64 # Tokens: 18 ratio 0.28
+Original: 41 # Tokens: 10 ratio 0.24
+Original: 29 # Tokens: 8 ratio 0.28
+Original: 22 # Tokens: 7 ratio 0.32
+Original: 33 # Tokens: 10 ratio 0.30
+Original: 103 # Tokens: 25 ratio 0.24
+Original: 89 # Tokens: 20 ratio 0.22
+Original: 103 # Tokens: 28 ratio 0.27
+Original: 87 # Tokens: 22 ratio 0.25
+Original: 56 # Tokens: 14 ratio 0.25
+Original: 103 # Tokens: 29 ratio 0.28
+Original: 26 # Tokens: 8 ratio 0.31
+Original: 21 # Tokens: 5 ratio 0.24
+Original: 94 # Tokens: 32 ratio 0.34
+Original: 32 # Tokens: 9 ratio 0.28
+Original: 103 # Tokens: 22 ratio 0.21
+Original: 86 # Tokens: 16 ratio 0.19
+Original: 79 # Tokens: 15 ratio 0.19
+Original: 103 # Tokens: 31 ratio 0.30
+Original: 33 # Tokens: 10 ratio 0.30
+Original: 19 # Tokens: 5 ratio 0.26
+Original: 103 # Tokens: 24 ratio 0.23
+Original: 80 # Tokens: 12 ratio 0.15
+Original: 56 # Tokens: 12 ratio 0.21
+Original: 103 # Tokens: 26 ratio 0.25
+Original: 103 # Tokens: 28 ratio 0.27
+Original: 35 # Tokens: 11 ratio 0.31
+Original: 30 # Tokens: 6 ratio 0.20
+Original: 26 # Tokens: 9 ratio 0.35
+Original: 103 # Tokens: 32 ratio 0.31
+Original: 64 # Tokens: 17 ratio 0.27
+Original: 66 # Tokens: 14 ratio 0.21
+Original: 103 # Tokens: 29 ratio 0.28
+Original: 76 # Tokens: 17 ratio 0.22
+Original: 55 # Tokens: 12 ratio 0.22
+Original: 103 # Tokens: 25 ratio 0.24
+Original: 103 # Tokens: 26 ratio 0.25
+Original: 103 # Tokens: 29 ratio 0.28
+Original: 103 # Tokens: 28 ratio 0.27
+Original: 26 # Tokens: 12 ratio 0.46
+Original: 45 # Tokens: 9 ratio 0.20
+Original: 40 # Tokens: 8 ratio 0.20
+Original: 26 # Tokens: 9 ratio 0.35
+Original: 27 # Tokens: 8 ratio 0.30
+Original: 73 # Tokens: 27 ratio 0.37
+Original: 103 # Tokens: 35 ratio 0.34
+Original: 103 # Tokens: 29 ratio 0.28
+Original: 103 # Tokens: 29 ratio 0.28
+Original: 11 # Tokens: 6 ratio 0.55
+Original: 64 # Tokens: 16 ratio 0.25
+Original: 37 # Tokens: 12 ratio 0.32
+Original: 37 # Tokens: 11 ratio 0.30
+Original: 35 # Tokens: 12 ratio 0.34
+Original: 103 # Tokens: 38 ratio 0.37
+Loaded model with vocabulary size: 50304
