@@ -13,6 +13,59 @@ import threading
 import time
 import gc
 
+# Define standalone functions for multiprocessing
+def calculate_line_offsets(file_path: str) -> List[int]:
+    """Calculate byte offsets for each line in a file"""
+    offsets = [0]
+    try:
+        with open(file_path, 'rb') as f:
+            mm = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
+            line = mm.readline()
+            while line:
+                offsets.append(mm.tell())
+                line = mm.readline()
+            mm.close()
+    except Exception as e:
+        print(f"Error processing {file_path}: {e}")
+        return []
+    return offsets[:-1]  # Remove the last offset which is EOF
+
+def process_chunk(args):
+    """Process a chunk of text from a file based on line offsets"""
+    file_path, offsets, tokenizer_model_path, lang, is_test, sequence_length = args
+    
+    # Load tokenizer in each worker process
+    tokenizer = spm.SentencePieceProcessor()
+    tokenizer.load(tokenizer_model_path)
+    
+    sequences = []
+    current_tokens = np.array([], dtype=np.uint16)
+    
+    try:
+        with open(file_path, 'rb') as f:
+            mm = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
+            
+            for offset in offsets:
+                mm.seek(offset)
+                line = mm.readline().decode('utf-8', errors='ignore').strip()
+                
+                # Tokenize line
+                line_tokens = np.array(tokenizer.encode(line), dtype=np.uint16)
+                current_tokens = np.append(current_tokens, line_tokens)
+                
+                # Create full sequences of length sequence_length
+                while len(current_tokens) >= sequence_length:
+                    sequence = current_tokens[:sequence_length]
+                    current_tokens = current_tokens[sequence_length:]
+                    sequences.append(sequence)
+            
+            mm.close()
+    except Exception as e:
+        print(f"Error processing chunk in {file_path}: {e}")
+        return [], lang, is_test
+    
+    return sequences, lang, is_test
+
 class ResourceMonitor:
     """Monitor and report system resource usage"""
     def __init__(self, interval=5):
@@ -119,22 +172,6 @@ class MultilingualDatasetOptimized:
         files = ['Hindi.txt', 'gujrati.txt', 'kannada.txt', 'mar.txt', 'mlym.txt', 'orya.txt']
         return {f.split('.')[0]: os.path.join(self.data_dir, f) for f in files}
     
-    def _calculate_line_offsets(self, file_path: str) -> List[int]:
-        """Calculate byte offsets for each line in a file"""
-        offsets = [0]
-        try:
-            with open(file_path, 'rb') as f:
-                mm = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
-                line = mm.readline()
-                while line:
-                    offsets.append(mm.tell())
-                    line = mm.readline()
-                mm.close()
-        except Exception as e:
-            print(f"Error processing {file_path}: {e}")
-            return []
-        return offsets[:-1]  # Remove the last offset which is EOF
-    
     def _create_stratified_split_indices(self, lang: str) -> Tuple[List[int], List[int]]:
         """Create stratified train/test split indices for a language"""
         offsets = self.file_offsets[lang]
@@ -153,42 +190,6 @@ class MultilingualDatasetOptimized:
         
         return train_indices, test_indices
     
-    def _process_chunk(self, args):
-        """Process a chunk of text from a file based on line offsets"""
-        file_path, offsets, tokenizer_model_path, lang, is_test = args
-        
-        # Load tokenizer in each worker process
-        tokenizer = spm.SentencePieceProcessor()
-        tokenizer.load(tokenizer_model_path)
-        
-        sequences = []
-        current_tokens = np.array([], dtype=np.uint16)
-        
-        try:
-            with open(file_path, 'rb') as f:
-                mm = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
-                
-                for offset in offsets:
-                    mm.seek(offset)
-                    line = mm.readline().decode('utf-8', errors='ignore').strip()
-                    
-                    # Tokenize line
-                    line_tokens = np.array(tokenizer.encode(line), dtype=np.uint16)
-                    current_tokens = np.append(current_tokens, line_tokens)
-                    
-                    # Create full sequences of length sequence_length
-                    while len(current_tokens) >= self.sequence_length:
-                        sequence = current_tokens[:self.sequence_length]
-                        current_tokens = current_tokens[self.sequence_length:]
-                        sequences.append(sequence)
-                
-                mm.close()
-        except Exception as e:
-            print(f"Error processing chunk in {file_path}: {e}")
-            return [], lang, is_test
-        
-        return sequences, lang, is_test
-    
     def _save_sequences_to_file(self, sequences: List[np.ndarray], file_path: str):
         """Save sequences to a binary file"""
         with open(file_path, 'ab') as f:
@@ -196,11 +197,23 @@ class MultilingualDatasetOptimized:
                 seq.tofile(f)
     
     def calculate_offsets(self):
-        """Calculate line offsets for all files"""
+        """Calculate line offsets for all files using multiprocessing"""
         print("Calculating line offsets for all files...")
         start_time = time.time()
-        for lang, file_path in tqdm(self.file_paths.items()):
-            self.file_offsets[lang] = self._calculate_line_offsets(file_path)
+        
+        # Use multiprocessing to calculate offsets in parallel
+        file_paths = [(lang, path) for lang, path in self.file_paths.items()]
+        
+        with mp.Pool(processes=self.num_workers) as pool:
+            results = list(tqdm(
+                pool.starmap(lambda lang, path: (lang, calculate_line_offsets(path)), file_paths),
+                total=len(file_paths),
+                desc="Calculating line offsets"
+            ))
+        
+        # Store results
+        for lang, offsets in results:
+            self.file_offsets[lang] = offsets
             print(f"{lang}: {len(self.file_offsets[lang])} lines")
         
         elapsed = time.time() - start_time
@@ -221,6 +234,10 @@ class MultilingualDatasetOptimized:
         # Create resource monitor
         self.monitor.start()
         
+        # Calculate offsets if not done already
+        if not self.file_offsets:
+            self.calculate_offsets()
+        
         # Estimate processing time
         total_lines = sum(len(self.file_offsets[lang]) for lang in self.file_paths.keys() if lang in self.file_offsets)
         estimated_lines_per_second = 5000  # Rough estimate, will be adjusted based on initial processing
@@ -237,10 +254,6 @@ class MultilingualDatasetOptimized:
             test_file = os.path.join(output_dir, f'{lang}_test.bin')
             test_files[lang] = test_file
             open(test_file, 'wb').close()
-        
-        # Calculate offsets if not done already
-        if not self.file_offsets:
-            self.calculate_offsets()
         
         # Save metadata
         metadata = {
@@ -290,14 +303,14 @@ class MultilingualDatasetOptimized:
             for i in range(0, len(train_indices), chunk_size):
                 chunk_indices = train_indices[i:i+chunk_size]
                 chunk_offsets = [self.file_offsets[lang][idx] for idx in chunk_indices]
-                train_chunks.append((file_path, chunk_offsets, self.tokenizer_model_path, lang, False))
+                train_chunks.append((file_path, chunk_offsets, self.tokenizer_model_path, lang, False, self.sequence_length))
             
             # Create processing chunks (test)
             test_chunks = []
             for i in range(0, len(test_indices), chunk_size):
                 chunk_indices = test_indices[i:i+chunk_size]
                 chunk_offsets = [self.file_offsets[lang][idx] for idx in chunk_indices]
-                test_chunks.append((file_path, chunk_offsets, self.tokenizer_model_path, lang, True))
+                test_chunks.append((file_path, chunk_offsets, self.tokenizer_model_path, lang, True, self.sequence_length))
             
             # Process all chunks with multiprocessing
             all_chunks = train_chunks + test_chunks
@@ -315,7 +328,7 @@ class MultilingualDatasetOptimized:
                 
                 with mp.Pool(processes=self.num_workers) as pool:
                     results = list(tqdm(
-                        pool.imap(self._process_chunk, current_chunks),
+                        pool.imap(process_chunk, current_chunks),
                         total=len(current_chunks),
                         desc=f"Processing chunks {i}-{min(i+batch_size, total_chunks)}/{total_chunks}"
                     ))
