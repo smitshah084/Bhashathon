@@ -1,0 +1,13 @@
+name: nanoGPT
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab=4.3.5
+  - python=3.12.9
+  - sentencepiece=0.2.0
+  - torchvision=0.18.1
+  - transformers=4.45.2
+  - pip:
+      - -r requirements.txt
+prefix: /opt/miniconda3/envs/nanoGPT
