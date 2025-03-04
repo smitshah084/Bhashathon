@@ -13,7 +13,6 @@ langs = ["Hin","Guj","Kann","Mar","mlym","Orya"]
 for path in test_bin_paths:
         
         print(path,end=" ")
-        path = './bin_data/'+path
 
         test_loader = FastBinaryDataLoader(
         data_path=path, 
@@ -37,11 +36,11 @@ import deepspeed
 from tqdm import tqdm
 from transformers import GPT2Config, GPT2LMHeadModel, get_linear_schedule_with_warmup
 from torch.utils.tensorboard import SummaryWriter
-from data_loader import FastBinaryDataLoader
+from Preprocessing.data_loader import FastBinaryDataLoader
 
 # Set up argument parser
 parser = argparse.ArgumentParser(description='Train GPT-2 1.5B model')
-parser.add_argument('--train_path', type=str, default='./train.bin', help='Path to training data')
+parser.add_argument('--train_path', type=str, default='./bin_data/train.bin', help='Path to training data')
 parser.add_argument('--test_path', type=str, default='./test.bin', help='Path to validation data')
 parser.add_argument('--output_dir', type=str, default='./output', help='Output directory')
 parser.add_argument('--log_dir', type=str, default='./logs', help='Log directory')
@@ -62,7 +61,7 @@ writer = SummaryWriter(log_dir=args.log_dir)
 
 # GPT-2 1.5B model configuration (standard hyperparameters as published)
 model_config = GPT2Config(
-    vocab_size=50257,
+    vocab_size=50304,
     n_positions=1024,
     n_embd=1600,
     n_layer=48,
