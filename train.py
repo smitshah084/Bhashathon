@@ -10,7 +10,7 @@ test_bin_paths = ['./bin_data/Hindi_test.bin',
 
 langs = ["Hin","Guj","Kann","Mar","mlym","Orya"]
 
-for path in test_bin_paths:
+for path in [train_bin_path] + test_bin_paths:
         
         print(path,end=" ")
 
@@ -40,8 +40,6 @@ from Preprocessing.data_loader import FastBinaryDataLoader
 
 # Set up argument parser
 parser = argparse.ArgumentParser(description='Train GPT-2 1.5B model')
-parser.add_argument('--train_path', type=str, default='./bin_data/train.bin', help='Path to training data')
-parser.add_argument('--test_path', type=str, default='./test.bin', help='Path to validation data')
 parser.add_argument('--output_dir', type=str, default='./output', help='Output directory')
 parser.add_argument('--log_dir', type=str, default='./logs', help='Log directory')
 parser.add_argument('--seed', type=int, default=42, help='Random seed')
@@ -81,21 +79,20 @@ model_config = GPT2Config(
 
 # DeepSpeed configuration optimized for your hardware
 ds_config = {
-    "train_batch_size": 8,
+    "train_batch_size": 2,
     "train_micro_batch_size_per_gpu": 1,
-    "gradient_accumulation_steps": 8,
+    "gradient_accumulation_steps": 2,
     "steps_per_print": 10,
     "zero_optimization": {
         "stage": 2,
         "offload_optimizer": {
-            "device": "cpu",
-            "pin_memory": True
+            "device": "none",
         },
         "allgather_partitions": True,
-        "allgather_bucket_size": 5e8,
+        "allgather_bucket_size": 2e7,
         "overlap_comm": True,
         "reduce_scatter": True,
-        "reduce_bucket_size": 5e8,
+        "reduce_bucket_size": 2e7,
         "contiguous_gradients": True
     },
     "fp16": {
@@ -109,8 +106,8 @@ ds_config = {
     "activation_checkpointing": {
         "partition_activations": True,
         "cpu_checkpointing": True,
-        "contiguous_memory_optimization": True,
-        "number_checkpoints": 48
+        "contiguous_memory_optimization": False,
+        "number_checkpoints": 12
     },
     "wall_clock_breakdown": True,
     "optimizer": {
@@ -143,7 +140,7 @@ buffer_size = 10000  # Buffer to efficiently load data
 prefetch = 4  # Number of batches to prefetch
 
 train_dataloader = FastBinaryDataLoader(
-    data_path=args.train_path,
+    data_path=train_bin_path,
     batch_size=train_batch_size,
     shuffle=True,
     sequence_length=sequence_length,
