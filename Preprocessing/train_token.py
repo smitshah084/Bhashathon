@@ -62,13 +62,28 @@ class MultilingualTokenizer:
         
         # Map file names to language keys
         self.file_to_lang = {
-            'Hindi.txt': 'Hindi', 
-            'gujrati.txt': 'Gujarati',
-            'kannada.txt': 'Kannada',
-            'mar.txt': 'Marathi',
-            'mlym.txt': 'Malayalam',
-            'orya.txt': 'Odia'
-        }
+            'hindi_processed.txt': 'Hindi', 
+            'gujarati_processed.txt': 'Gujarati',
+            'kannada_processed.txt': 'Kannada',
+            'marathi_processed.txt': 'Marathi',
+            'malayalam_processed.txt': 'Malayalam',
+            'odia_processed.txt': 'Odia'
+        }          
+        # self.file_line_counts = {
+        #     '../../txt_data/kannada.txt':62_137_119,
+        #     '../../txt_data/Hindi.txt':69_702_576,
+        #     '../../txt_data/gujrati.txt'  : 48_219_331,
+        #     '../../txt_data/odia.txt'  : 2_382_568,
+        #     '../../txt_data/marathi.txt': 40_369_165,
+        #     '../../txt_data/malayalam.txt'  : 64_879_852,
+        # }
+        # on previous iter
+        # 1_138_360 lines from Marathi
+        # 2_635_431 lines from Kannada
+        # 1_584_919 lines from Hindi
+        # 2_079_062 lines from Malayalam
+        # 457_540 lines from Odia
+        # 2_104_685 lines from Gujarati
         
         # Create output directory if it doesn't exist
         Path(os.path.dirname(output_prefix)).mkdir(parents=True, exist_ok=True)
@@ -83,12 +98,15 @@ class MultilingualTokenizer:
     
     def count_lines(self, file_path: str) -> int:
         """Count lines in a file efficiently."""
+        print("COUNTING LINES OF ",file_path)
         try:
             # Use wc command for efficient line counting
             import subprocess
             result = subprocess.run(['wc', '-l', file_path], 
                                    capture_output=True, text=True)
-            return int(result.stdout.split()[0])
+            o = int(result.stdout.split()[0])
+            print("LINE COUNT of",file_path," :",o)
+            return o
         except:
             # Fallback method if wc isn't available
             count = 0
@@ -102,8 +120,13 @@ class MultilingualTokenizer:
         Prepare a training file with memory-efficient processing.
         Uses reservoir sampling and chunking for large files.
         """
+        print("PREPARING COMBINED TRAINING FILE START")
         if combined_file is None:
             combined_file = f"{self.output_prefix}_combined.txt"
+            
+        if os.path.exists(combined_file):
+            logger.info(f"Combined file {combined_file} already exists. Skipping preparation.")
+            return combined_file
         
         logger.info(f"Preparing training data from {len(self.input_files)} files")
         
@@ -119,6 +142,7 @@ class MultilingualTokenizer:
         # Process each file separately with reservoir sampling
         with open(combined_file, 'w', encoding='utf-8') as outfile:
             for file_path in self.input_files:
+                print("PREPARING ",file_path," FOR TRAINING")
                 base_name = os.path.basename(file_path)
                 lang_name = self.file_to_lang.get(base_name, Path(file_path).stem)
                 
@@ -130,7 +154,8 @@ class MultilingualTokenizer:
                 
                 # Get line count for progress reporting
                 try:
-                    total_lines = self.count_lines(file_path)
+                    # total_lines = self.count_lines(file_path)
+                    total_lines = self.languages[lang_name]
                     logger.info(f"Processing {file_path} with {total_lines} lines")
                 except Exception as e:
                     logger.warning(f"Couldn't count lines in {file_path}: {e}")
@@ -295,6 +320,7 @@ class MultilingualTokenizer:
                         logger.info(f"Original: {sentence}")
                         logger.info(f"Tokens: {tokens[:20]}{'...' if len(tokens)>20 else ''}")
                         logger.info(f"# Tokens: {len(tokens)}")
+                        logger.info(f"# original: {len(sentence)}")
                         
                 except Exception as e:
                     logger.error(f"Error testing on {lang_name}: {str(e)}")
@@ -341,22 +367,34 @@ def main():
     parser.add_argument(
         "--num_threads", 
         type=int, 
-        default=4,
+        default=16,
         help="Number of threads to use for training"
     )
     
     args = parser.parse_args()
-    input_files = ["../"+str(p) for p in Path("../txt_data/").glob("*.txt")]
+    input_files = ["../"+str(p) for p in Path("preprocessed/").glob("*.txt")]
     
     # Language distribution data
     language_data = {
-        "Hindi": 433_000_000,
-        "Gujarati": 575_000_000,
-        "Kannada": 720_000_000,
-        "Marathi": 311_000_000,
-        "Malayalam": 568_000_000,
-        "Odia": 125_000_000
+        "Gujarati": 21770185,
+        "Hindi": 18800523,
+        "Kannada": 39910121,
+        "Malayalam": 43789448,
+        "Marathi": 23720708,
+        "Odia": 622911
     }
+# LINE COUNT of ../../txt_data/gujrati.txt  : 48_219_331
+# LINE COUNT of ../../txt_data/Hindi.txt  : 69_702_576
+# LINE COUNT of ../../txt_data/marathi.txt  : 40369165
+# LINE COUNT of ../../txt_data/kannada.txt  : 62_137_119
+# LINE COUNT of ../../txt_data/odia.txt  : 2382568
+# LINE COUNT of ../../txt_data/malayalam.txt  : 64_879_852
+# ./odia.txt: 20_104_412 words, 125_319_425 chars                                                                                                                                        
+# ./marathi.txt: 529_202_722 words, 3_574_712_337 chars                                                                                                                                   
+# ./gujrati.txt: 736_913_387 words, 4_328_510_189 chars                                                                                                                                   
+# ./kannada.txt: 692_278_525 words, 5_660_951_964 chars                                                                                                                                   
+# ./malayalam.txt: 675_825_752 words, 6_673_719_858 chars                                                                                                                                 
+# ./Hindi.txt: 1_776_948_988 words, 9_096_419_775 chars 
     
     dir_path = args.output_prefix
     # while not os.path.isdir(dir_path):
@@ -364,7 +402,8 @@ def main():
     #         dir_path[-1] = str(int(dir_path[-1]) + 1)
     #     except:
     #         dir_path += "_1"
-    os.makedirs(dir_path)
+    if not os.path.isdir(dir_path):
+        os.makedirs(dir_path)
     os.chdir(dir_path)
         
     tokenizer = MultilingualTokenizer(
@@ -377,7 +416,11 @@ def main():
         num_threads=args.num_threads,
         languages=language_data
     )
-    
+    # com_file = tokenizer.prepare_training_file()
+    # for i in input_files:
+    #     a = tokenizer.count_lines(i)
+    #     print(i,a)
+    # import sys; sys.exit()
     s = time()
     success = tokenizer.train()
     s = time() - s

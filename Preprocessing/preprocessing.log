@@ -1,0 +1,79 @@
+2025-03-08 00:44:03,704 - __main__ - ERROR - None of the specified input files exist.
+2025-03-08 00:45:01,639 - __main__ - INFO - Running time estimation...
+2025-03-08 00:45:01,639 - __main__ - INFO - File: Hindi.txt, Size: 22033.16 MB
+2025-03-08 00:45:01,639 - __main__ - INFO - Total size: 22033.16 MB
+2025-03-08 00:47:48,058 - __main__ - INFO - Sampled 1000 lines from Hindi file
+2025-03-08 00:47:48,058 - __main__ - INFO - Processing 1000 sampled lines to estimate rate...
+2025-03-08 00:48:58,880 - __main__ - INFO - Running time estimation...
+2025-03-08 00:48:58,880 - __main__ - INFO - File: Hindi.txt, Size: 22033.16 MB
+2025-03-08 00:48:58,880 - __main__ - INFO - Total size: 22033.16 MB
+2025-03-08 00:51:45,241 - __main__ - INFO - Sampled 1000 lines from Hindi file
+2025-03-08 00:51:45,241 - __main__ - INFO - Processing 1000 sampled lines to estimate rate...
+2025-03-08 00:54:56,177 - __main__ - INFO - Running time estimation...
+2025-03-08 00:54:56,178 - __main__ - INFO - File: odia.txt, Size: 315.48 MB
+2025-03-08 00:54:56,178 - __main__ - INFO - Total size: 315.48 MB
+2025-03-08 00:54:58,112 - __main__ - INFO - Sampled 1000 lines from Odia file
+2025-03-08 00:54:58,112 - __main__ - INFO - Processing 1000 sampled lines to estimate rate...
+2025-03-08 00:55:42,992 - __main__ - INFO - Running time estimation...
+2025-03-08 00:55:42,992 - __main__ - INFO - File: odia.txt, Size: 315.48 MB
+2025-03-08 00:55:42,992 - __main__ - INFO - Total size: 315.48 MB
+2025-03-08 00:55:44,463 - __main__ - INFO - Sampled 1000 lines from Odia file
+2025-03-08 00:55:44,463 - __main__ - INFO - Processing 1000 sampled lines to estimate rate...
+2025-03-08 00:56:58,928 - __main__ - INFO - Running time estimation...
+2025-03-08 00:56:58,928 - __main__ - INFO - File: odia.txt, Size: 315.48 MB
+2025-03-08 00:56:58,928 - __main__ - INFO - Total size: 315.48 MB
+2025-03-08 00:57:00,394 - __main__ - INFO - Sampled 1000 lines from Odia file
+2025-03-08 00:57:00,394 - __main__ - INFO - Processing 1000 sampled lines to estimate rate...
+2025-03-08 00:57:00,534 - __main__ - INFO - Sample processing rate: 1064.90 KB/sec
+2025-03-08 00:57:00,534 - __main__ - INFO - Processed 546 of 1000 sampled lines
+2025-03-08 00:57:00,534 - __main__ - INFO - Line retention rate: 54.6%
+2025-03-08 00:57:00,534 - __main__ - INFO - 
+Estimated processing times:
+2025-03-08 00:57:00,534 - __main__ - INFO - odia.txt: 5.06 minutes (315.48 MB, ~1,590,779 lines)
+2025-03-08 00:57:00,534 - __main__ - INFO - 
+Total estimated time: 5.06 minutes
+2025-03-08 00:57:00,534 - __main__ - INFO - 
+Estimated times with different thread counts:
+2025-03-08 00:57:00,534 - __main__ - INFO - 1 threads: 5.06 minutes
+2025-03-08 00:57:00,535 - __main__ - INFO - 2 threads: 3.16 minutes
+2025-03-08 00:57:00,535 - __main__ - INFO - 4 threads: 1.58 minutes
+2025-03-08 00:57:00,535 - __main__ - INFO - 8 threads: 47.40 seconds
+2025-03-08 00:57:00,535 - __main__ - INFO - 16 threads: 23.70 seconds
+2025-03-08 00:58:34,748 - __main__ - INFO - Running time estimation...
+2025-03-08 00:58:34,748 - __main__ - INFO - File: gujrati.txt, Size: 10694.21 MB
+2025-03-08 00:58:34,748 - __main__ - INFO - Total size: 10694.21 MB
+2025-03-08 01:00:00,082 - __main__ - INFO - Sampled 1000 lines from Gujarati file
+2025-03-08 01:00:00,083 - __main__ - INFO - Processing 1000 sampled lines to estimate rate...
+2025-03-08 01:00:02,531 - __main__ - INFO - Sample processing rate: 91.12 KB/sec
+2025-03-08 01:00:02,531 - __main__ - INFO - Processed 487 of 1000 sampled lines
+2025-03-08 01:00:02,531 - __main__ - INFO - Line retention rate: 48.7%
+2025-03-08 01:00:02,531 - __main__ - INFO - 
+Estimated processing times:
+2025-03-08 01:00:02,531 - __main__ - INFO - gujrati.txt: 33.38 hours (10694.21 MB, ~47,196,287 lines)
+2025-03-08 01:00:02,531 - __main__ - INFO - 
+Total estimated time: 33.38 hours
+2025-03-08 01:00:02,531 - __main__ - INFO - 
+Estimated times with different thread counts:
+2025-03-08 01:00:02,531 - __main__ - INFO - 1 threads: 33.38 hours
+2025-03-08 01:00:02,531 - __main__ - INFO - 2 threads: 20.87 hours
+2025-03-08 01:00:02,531 - __main__ - INFO - 4 threads: 10.43 hours
+2025-03-08 01:00:02,531 - __main__ - INFO - 8 threads: 5.22 hours
+2025-03-08 01:00:02,531 - __main__ - INFO - 16 threads: 2.61 hours
+2025-03-08 01:05:03,083 - __main__ - INFO - Processing Hindi file: ../txt_data/Hindi.txt
+2025-03-08 01:05:03,083 - __main__ - INFO - Processing Gujarati file: ../txt_data/gujrati.txt
+2025-03-08 01:05:03,083 - __main__ - INFO - Processing Kannada file: ../txt_data/kannada.txt
+2025-03-08 01:05:03,084 - __main__ - INFO - Processing Malayalam file: ../txt_data/malayalam.txt
+2025-03-08 01:05:03,085 - __main__ - INFO - Processing Marathi file: ../txt_data/marathi.txt
+2025-03-08 01:05:03,085 - __main__ - INFO - Processing Odia file: ../txt_data/odia.txt
+2025-03-08 01:06:12,675 - __main__ - INFO - Completed processing Odia: 2382568 lines read, 622911 lines kept, 1759657 lines skipped
+2025-03-08 01:32:55,479 - __main__ - INFO - Completed processing Marathi: 40369165 lines read, 23720708 lines kept, 16648457 lines skipped
+2025-03-08 01:36:28,015 - __main__ - INFO - Completed processing Gujarati: 48219331 lines read, 21770185 lines kept, 26449146 lines skipped
+2025-03-08 01:52:33,474 - __main__ - INFO - Completed processing Kannada: 62137119 lines read, 39910121 lines kept, 22226998 lines skipped
+2025-03-08 02:03:30,183 - __main__ - INFO - Completed processing Malayalam: 64879852 lines read, 43789448 lines kept, 21090404 lines skipped
+2025-03-08 02:09:13,762 - __main__ - INFO - Completed processing Hindi: 69702579 lines read, 18800523 lines kept, 50902056 lines skipped
+2025-03-08 02:09:15,228 - __main__ - INFO - Successfully processed Hindi data: preprocessed/hindi_processed.txt
+2025-03-08 02:09:15,229 - __main__ - INFO - Successfully processed Gujarati data: preprocessed/gujarati_processed.txt
+2025-03-08 02:09:15,229 - __main__ - INFO - Successfully processed Kannada data: preprocessed/kannada_processed.txt
+2025-03-08 02:09:15,229 - __main__ - INFO - Successfully processed Malayalam data: preprocessed/malayalam_processed.txt
+2025-03-08 02:09:15,229 - __main__ - INFO - Successfully processed Marathi data: preprocessed/marathi_processed.txt
+2025-03-08 02:09:15,229 - __main__ - INFO - Successfully processed Odia data: preprocessed/odia_processed.txt

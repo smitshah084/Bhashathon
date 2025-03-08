@@ -1,3 +1,4 @@
+
 import os
 import numpy as np
 import sentencepiece as spm
@@ -531,7 +532,7 @@ def shuffle_binary_file(file_path, sequence_length=1024, output_path=None):
 # Example usage:
 if __name__ == "__main__":
     # Example configuration
-    data_dir = "./preprocessed/"
+    data_dir = "../"
     model_path = "./the_10M/the_10M.model"
     output_dir = "../bin_data"
     
@@ -547,7 +548,7 @@ if __name__ == "__main__":
         model_path=model_path,
         test_ratio=0.05,
         sequence_length=1024,
-        num_workers=16  # Using all available cores
+        num_workers=8  # Using all available cores
     )
     
     # Process and save all data to binary files

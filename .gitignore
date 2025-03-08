@@ -9,3 +9,5 @@ bin_data/
 raw_data/
 txt_data/
 Preprocessing/__pycache__/
+Preprocessing/preprocessed/
+Preprocessing/the_10M/the_10M_combined.txt
