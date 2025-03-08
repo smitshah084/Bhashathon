@@ -11,3 +11,4 @@ txt_data/
 Preprocessing/__pycache__/
 Preprocessing/preprocessed/
 Preprocessing/the_10M/the_10M_combined.txt
+__pycache__/

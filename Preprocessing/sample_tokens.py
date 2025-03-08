@@ -20,18 +20,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-
-# tokenizer = MultilingualTokenizer(
-#         input_files=input_files,
-#         output_prefix=args.output_prefix,
-#         vocab_size=args.vocab_size,
-#         model_type=args.model_type,
-#         character_coverage=args.character_coverage,
-#         input_sentence_size=args.input_sentence_size,
-#         num_threads=args.num_threads,
-#         languages=language_data
-#     )
-
 def test_on_sample(sample_file: str = "../bin_data/train.bin", num_samples: int = 10) -> None:
         """
         Test tokenizer on a small sample from each language file.
