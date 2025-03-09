@@ -1,0 +1,15 @@
+{"time":"2025-03-08T19:33:37.198744416Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/data/Bhashathon/wandb/run-20250308_193337-t4rpkg95/logs/debug-core.log"}
+{"time":"2025-03-08T19:33:37.301006378Z","level":"INFO","msg":"created new stream","id":"t4rpkg95"}
+{"time":"2025-03-08T19:33:37.301040288Z","level":"INFO","msg":"stream: started","id":"t4rpkg95"}
+{"time":"2025-03-08T19:33:37.301080519Z","level":"INFO","msg":"writer: Do: started","stream_id":"t4rpkg95"}
+{"time":"2025-03-08T19:33:37.301081819Z","level":"INFO","msg":"handler: started","stream_id":"t4rpkg95"}
+{"time":"2025-03-08T19:33:37.30112041Z","level":"INFO","msg":"sender: started","stream_id":"t4rpkg95"}
+{"time":"2025-03-08T19:33:37.675313239Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-08T19:34:37.727015496Z","level":"INFO","msg":"stream: closing","id":"t4rpkg95"}
+{"time":"2025-03-08T19:34:37.727053687Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-08T19:34:37.727489035Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-08T19:34:40.120110543Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-08T19:34:40.427889379Z","level":"INFO","msg":"handler: closed","stream_id":"t4rpkg95"}
+{"time":"2025-03-08T19:34:40.427905709Z","level":"INFO","msg":"writer: Close: closed","stream_id":"t4rpkg95"}
+{"time":"2025-03-08T19:34:40.42791288Z","level":"INFO","msg":"sender: closed","stream_id":"t4rpkg95"}
+{"time":"2025-03-08T19:34:40.42795502Z","level":"INFO","msg":"stream: closed","id":"t4rpkg95"}

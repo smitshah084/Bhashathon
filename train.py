@@ -13,12 +13,12 @@ from model import GPTConfig, GPT
 import glob
 
 out_dir = 'out'
-eval_interval = 200
+eval_interval = 100
 log_interval = 1
 eval_iters = 3
 eval_only = False # if True, script exits right after the first eval
 always_save_checkpoint = True # if True, always save a checkpoint after each eval
-init_from = 'scratch' # 'scratch' or 'resume' or 'gpt2*'
+init_from = 'resume' # 'scratch' or 'resume' or 'gpt2*'
 # wandb logging
 # 0dcd4aa8bbcc0cee524f0ce847250dafda4f1024
 wandb_log = True # disabled by default
@@ -26,7 +26,7 @@ wandb_project = 'owt'
 wandb_run_name = 'gpt2' # 'run' + str(time.time())
 # data
 dataset_dir = 'bin_data'
-batch_size = 8 # if gradient_accumulation_steps > 1, this is the micro-batch size
+batch_size = 16 # if gradient_accumulation_steps > 1, this is the micro-batch size
 gradient_accumulation_steps = int(500000/(batch_size*1024))# used to simulate larger batch sizes
 block_size = 1024
 # model
@@ -38,7 +38,7 @@ bias = False # do we use bias inside LayerNorm and Linear layers?
 # adamw optimizer
 learning_rate = 6e-4 # max learning rate
 epoch = 1
-max_iters = (8981//batch_size) * epoch # total number of training iterations
+max_iters = (6200) * epoch # total number of training iterations
 
 weight_decay = 1e-1
 beta1 = 0.9
@@ -53,8 +53,11 @@ min_lr = 6e-5 # minimum learning rate, should be ~= learning_rate/10 per Chinchi
 backend = 'nccl' # 'nccl', 'gloo', etc.
 # system
 device = 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1' etc., or try 'mps' on macbooks
-dtype = 'float16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32', 'bfloat16', or 'float16', the latter will auto implement a GradScaler
-compile = False # use PyTorch 2.0 to compile the model to be faster
+dtype = 'bfloat16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32', 'bfloat16', or 'float16', the latter will auto implement a GradScaler
+compile = True # use PyTorch 2.0 to compile the model to be faster
+
+config_keys = [k for k,v in globals().items() if not k.startswith('_') and isinstance(v, (int, float, bool, str))]
+config = {k: globals()[k] for k in config_keys} # will be useful for logging
 
 metrics = {
     'train_tokens_per_second': deque(maxlen=100),  # Forward pass speed
@@ -100,80 +103,190 @@ device_type = 'cuda' if 'cuda' in device else 'cpu' # for later use in torch.aut
 ptdtype = {'float32': torch.float32, 'bfloat16': torch.bfloat16, 'float16': torch.float16}[dtype]
 ctx = nullcontext() if device_type == 'cpu' else torch.amp.autocast(device_type=device_type, dtype=ptdtype)
 
-def get_batch(split, batch=None, language=None):
-    data_load_start = time.time()
-    B = batch_size if batch is None else batch
-    
-    # Get all available files for the requested split
-    file_pattern = f"*_{split}.bin"
-    all_files = glob.glob(os.path.join(dataset_dir, file_pattern))
-    
-    # If language is specified, filter files for that language
-    if language:
-        all_files = [f for f in all_files if language in os.path.basename(f)]
-    
-    if not all_files:
-        raise ValueError(f"No {split} data files found for {'specified language' if language else 'any language'}")
-    
-    # Get file sizes to determine sampling ratio
-    file_sizes = []
-    file_data = []
-    
-    for file_path in all_files:
-        data = np.memmap(file_path, dtype=np.uint16, mode='r')
-        file_sizes.append(len(data))
-        file_data.append(data)
-    
-    total_tokens = sum(file_sizes)
-    sampling_probs = [size / total_tokens for size in file_sizes]
-    
-    # Sample batch_size sequences proportional to file sizes
-    x_list = []
-    y_list = []
-    
-    # Count how many sequences to sample from each file
-    samples_per_file = [int(B * prob) for prob in sampling_probs]
-    # Ensure we get exactly B samples by adding any remainder to the largest file
-    remainder = B - sum(samples_per_file)
-    if remainder > 0:
-        max_idx = sampling_probs.index(max(sampling_probs))
-        samples_per_file[max_idx] += remainder
-    
-    # Sample from each file
-    for i, (data, num_samples) in enumerate(zip(file_data, samples_per_file)):
-        if num_samples == 0:
-            continue
-            
-        # Only sample if there's enough data
-        if len(data) <= block_size:
-            print(f"Warning: File {all_files[i]} is too small, skipping")
-            continue
-            
-        # Random indices
-        ix = torch.randint(len(data) - block_size, (num_samples,))
+import glob
+import threading
+import queue
+import numpy as np
+import torch
+import os
+import time
+
+class DataPrefetcher:
+    def __init__(self, split, batch_size, block_size, data_dir, device, metrics, 
+                 max_prefetch=30, language=None):
+        self.split = split
+        self.batch_size = batch_size
+        self.block_size = block_size
+        self.data_dir = data_dir
+        self.device = device
+        self.device_type = 'cuda' if 'cuda' in str(device) else 'cpu'
+        self.metrics = metrics
+        self.language = language
         
-        # Get x and y sequences
-        for idx in ix:
-            x = torch.from_numpy((data[idx:idx+block_size]).astype(np.int64))
-            y = torch.from_numpy((data[idx+1:idx+1+block_size]).astype(np.int64))
-            x_list.append(x)
-            y_list.append(y)
+        # Set up file and data info
+        self.file_pattern = f"*_{split}.bin"
+        self.all_files = glob.glob(os.path.join(data_dir, self.file_pattern))
+        
+        if language:
+            self.all_files = [f for f in self.all_files if language in os.path.basename(f)]
+        
+        if not self.all_files:
+            raise ValueError(f"No {split} data files found for {'specified language' if language else 'any language'}")
+        
+        # Setup memory-mapped files
+        self.file_data = []
+        self.file_sizes = []
+        
+        for file_path in self.all_files:
+            data = np.memmap(file_path, dtype=np.uint16, mode='r')
+            self.file_sizes.append(len(data))
+            self.file_data.append(data)
+        
+        # Calculate sampling probabilities
+        self.total_tokens = sum(self.file_sizes)
+        self.sampling_probs = [size / self.total_tokens for size in self.file_sizes]
+        
+        # Queue for prefetched batches
+        self.queue = queue.Queue(maxsize=max_prefetch)
+        
+        # Start prefetching thread
+        self.prefetch_thread = threading.Thread(target=self._prefetch_worker, daemon=True)
+        self.prefetch_thread.start()
+        
+        # Monitoring
+        self.prefetch_stats = {'generated': 0, 'consumed': 0}
     
-    # Stack all samples
-    x = torch.stack(x_list)
-    y = torch.stack(y_list)
+    def _prefetch_worker(self):
+        """Worker thread that continuously generates batches and adds them to the queue."""
+        while True:
+            try:
+                batch = self._generate_batch()
+                self.queue.put(batch)
+                self.prefetch_stats['generated'] += 1
+            except Exception as e:
+                print(f"Prefetching error: {e}")
+                # Add a small sleep to prevent CPU spinning on repeated errors
+                time.sleep(0.1)
     
-    # Move to device
-    if device_type == 'cuda':
-        # pin arrays x,y, which allows us to move them to GPU asynchronously (non_blocking=True)
-        x, y = x.pin_memory().to(device, non_blocking=True), y.pin_memory().to(device, non_blocking=True)
-    else:
-        x, y = x.to(device), y.to(device)
+    def _generate_batch(self, custom_batch_size=None):
+        """Generate a single batch of data."""
+        data_load_start = time.time()
+        B = custom_batch_size if custom_batch_size is not None else self.batch_size
+        
+        # Sample batch_size sequences proportional to file sizes
+        x_list = []
+        y_list = []
+        
+        # Count how many sequences to sample from each file
+        samples_per_file = [int(B * prob) for prob in self.sampling_probs]
+        # Ensure we get exactly B samples by adding any remainder to the largest file
+        remainder = B - sum(samples_per_file)
+        if remainder > 0:
+            max_idx = self.sampling_probs.index(max(self.sampling_probs))
+            samples_per_file[max_idx] += remainder
+        
+        # Sample from each file
+        for i, (data, num_samples) in enumerate(zip(self.file_data, samples_per_file)):
+            if num_samples == 0:
+                continue
+                
+            # Only sample if there's enough data
+            if len(data) <= self.block_size:
+                print(f"Warning: File {self.all_files[i]} is too small, skipping")
+                continue
+                
+            # Random indices
+            ix = torch.randint(len(data) - self.block_size, (num_samples,))
+            
+            # Get x and y sequences
+            for idx in ix:
+                x = torch.from_numpy((data[idx:idx+self.block_size]).astype(np.int64))
+                y = torch.from_numpy((data[idx+1:idx+1+self.block_size]).astype(np.int64))
+                x_list.append(x)
+                y_list.append(y)
+        
+        # Stack all samples
+        x = torch.stack(x_list)
+        y = torch.stack(y_list)
+        
+        # Move to device
+        if self.device_type == 'cuda':
+            # pin arrays x,y, which allows us to move them to GPU asynchronously (non_blocking=True)
+            x, y = x.pin_memory().to(self.device, non_blocking=True), y.pin_memory().to(self.device, non_blocking=True)
+        else:
+            x, y = x.to(self.device), y.to(self.device)
+        
+        data_load_end = time.time()
+        self.metrics['data_load_time'].append(data_load_end - data_load_start)
+        
+        return x, y
     
-    data_load_end = time.time()
-    metrics['data_load_time'].append(data_load_end - data_load_start)
+    def get_batch(self, batch=None):
+        """Get a batch, either from prefetched queue or generate a new one if custom size requested."""
+        if batch is not None and batch != self.batch_size:
+            # If custom batch size requested, generate it directly
+            return self._generate_batch(custom_batch_size=batch)
+        
+        # Otherwise use prefetched batch
+        result = self.queue.get()
+        self.prefetch_stats['consumed'] += 1
+        return result
     
-    return x, y
+    def get_stats(self):
+        """Get statistics about the prefetcher."""
+        stats = {
+            'queue_size': self.queue.qsize(),
+            'batches_generated': self.prefetch_stats['generated'],
+            'batches_consumed': self.prefetch_stats['consumed'],
+            'num_files': len(self.all_files),
+            'total_tokens': self.total_tokens
+        }
+        return stats
+
+
+# Updated get_batch function that uses the prefetcher
+def get_batch(split, batch=None, language=None):
+    """
+    Get a batch of data using the prefetcher.
+    This function maintains the same interface as the original get_batch
+    but uses a prefetcher under the hood for improved performance.
+    """
+    global _prefetchers
+    
+    # Initialize prefetcher dictionary if not exists
+    if not hasattr(get_batch, '_prefetchers'):
+        get_batch._prefetchers = {}
+    
+    # Create a unique key for this prefetcher configuration
+    prefetcher_key = f"{split}_{language if language else 'all'}"
+    
+    # Create prefetcher if it doesn't exist
+    if prefetcher_key not in get_batch._prefetchers:
+        get_batch._prefetchers[prefetcher_key] = DataPrefetcher(
+            split=split,
+            batch_size=batch_size,
+            block_size=block_size,
+            data_dir=dataset_dir,
+            device=device,
+            metrics=metrics,
+            language=language
+        )
+    
+    # Get batch from the prefetcher
+    return get_batch._prefetchers[prefetcher_key].get_batch(batch=batch)
+
+
+# Example of how to get prefetcher statistics
+def get_prefetcher_stats():
+    """Get statistics from all prefetchers."""
+    if not hasattr(get_batch, '_prefetchers'):
+        return {"error": "No prefetchers initialized yet"}
+    
+    stats = {}
+    for key, prefetcher in get_batch._prefetchers.items():
+        stats[key] = prefetcher.get_stats()
+    
+    return stats
 
 # init these up here, can override if init_from='resume' (i.e. from a checkpoint)
 iter_num = 0
@@ -193,7 +306,7 @@ if init_from == 'scratch':
 elif init_from == 'resume':
     print(f"Resuming training from {out_dir}")
     # resume training from a checkpoint.
-    ckpt_path = os.path.join(out_dir, 'ckpt.pt')
+    ckpt_path = os.path.join(out_dir, 'ckpt_inter.pt')
     checkpoint = torch.load(ckpt_path, map_location=device)
     checkpoint_model_args = checkpoint['model_args']
     # force these config attributes to be equal otherwise we can't even resume training
@@ -252,7 +365,7 @@ def estimate_loss():
     out = {}
     model.eval()
     split = 'test'
-    for lang in ['gujrati','hindi','kannada','malyalam','marathi','odia']:
+    for lang in ['gujarati','hindi','kannada','malayalam','marathi','odia']:
         losses = torch.zeros(eval_iters)
         tokens_processed = 0
         test_start_time = time.time()
@@ -344,7 +457,7 @@ t0 = time.time()
 local_iter_num = 0
 raw_model = model.module if ddp else model
 running_mfu = -1.0
-
+best_val_loss = 1e-9
 try:
     for iter_num in tqdm(range(max_iters), desc="Training Progress", dynamic_ncols=True):
         print("ITER: ",iter_num)
@@ -356,7 +469,7 @@ try:
         # Evaluate the loss on train/val sets and write checkpoints
         if iter_num % eval_interval == 0 and master_process and iter_num != 0:
             losses = estimate_loss()
-            print(f"step {iter_num}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
+            print(f"step {iter_num}, val loss {losses['val']:.4f}")
             
             # Add metrics to wandb logging
             if wandb_log:
@@ -366,11 +479,10 @@ try:
                 
                 wandb.log({
                     "iter": iter_num,
-                    "gujrati/loss": losses['gujrati'],
+                    "gujrati/loss": losses['gujarati'],
                     "hindi/loss": losses['hindi'],
-                    "Hindi_test/loss": losses['Hindi_test'],
                     "kannada/loss": losses['kannada'],
-                    "malyalam/loss": losses['malyalam'],
+                    "malyalam/loss": losses['malayalam'],
                     "marathi/loss": losses['marathi'],
                     "odia/loss": losses['odia'],
                     "metrics/train_tokens_per_second": avg_train_tokens_per_second,
@@ -467,6 +579,7 @@ try:
                 mfu = raw_model.estimate_mfu(batch_size * gradient_accumulation_steps, dt)
                 running_mfu = mfu if running_mfu == -1.0 else 0.9 * running_mfu + 0.1 * mfu
             
+            wandb.log({"loss/iter":lossf})
             print(f"iter {iter_num}: loss {lossf:.4f}, time {dt*1000:.2f}ms, mfu {running_mfu*100:.2f}%")
             # Print detailed performance metrics every log_interval
             print_performance_metrics(iter_num, total_tokens_processed)
@@ -497,4 +610,4 @@ finally:
         'config': config,
     }
     print(f"saving checkpoint to {out_dir}")
-    torch.save(checkpoint, os.path.join(out_dir, 'ckpt.pt'))
+    torch.save(checkpoint, os.path.join(out_dir, 'ckpt_inter.pt'))

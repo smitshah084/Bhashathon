@@ -11,15 +11,15 @@ from model import GPTConfig, GPT
 init_from = 'resume' # either 'resume' (from an out_dir) or a gpt2 variant (e.g. 'gpt2-xl')
 out_dir = 'out' # ignored if init_from is not 'resume'
 start = "\n" # or "<|endoftext|>" or etc. Can also specify a file, use as: "FILE:prompt.txt"
-num_samples = 3 # number of samples to draw
+num_samples = 1 # number of samples to draw
 max_new_tokens = 500 # number of tokens generated in each sample
 temperature = 0.8 # 1.0 = no change, < 1.0 = less random, > 1.0 = more random, in predictions
 top_k = 200 # retain only the top_k most likely tokens, clamp others to have 0 probability
 seed = 1337
 device = 'cuda' # examples: 'cpu', 'cuda', 'cuda:0', 'cuda:1', etc.
-dtype = 'float16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32' or 'bfloat16' or 'float16'
-compile = False # use PyTorch 2.0 to compile the model to be faster
-exec(open('configurator.py').read()) # overrides from command line or config file
+dtype = 'bfloat16' if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else 'float16' # 'float32' or 'bfloat16' or 'float16'
+compile = True # use PyTorch 2.0 to compile the model to be faster
+# exec(open('configurator.py').read()) # overrides from command line or config file
 # -----------------------------------------------------------------------------
 
 torch.manual_seed(seed)
@@ -31,7 +31,7 @@ ptdtype = {'float32': torch.float32, 'bfloat16': torch.bfloat16, 'float16': torc
 ctx = nullcontext() if device_type == 'cpu' else torch.amp.autocast(device_type=device_type, dtype=ptdtype)
 
 import sentencepiece as spm
-model_path = "indic_tokenizer_100M/indic_tokenizer_100M.model"
+model_path = "Preprocessing/the_10M/the_10M.model"
 sp = spm.SentencePieceProcessor()
 sp.load(model_path)
 # def decode_tokens(sp: spm.SentencePieceProcessor, tokens: list) -> str:
@@ -125,13 +125,13 @@ starts = [
 for start in starts:
     start_ids = sp.encode_as_ids(start)
     x = (torch.tensor(start_ids, dtype=torch.long, device=device)[None, ...])
-
+    print(start,end=" # ")
     # run generation
     with torch.no_grad():
         with ctx:
             for k in range(num_samples):
                 y = model.generate(x, max_new_tokens, temperature=temperature, top_k=top_k)
-                txt = sp.decode_pieces(y[0].tolist())
+                txt = sp.decode_ids(y[0].tolist())
                 txt = str(txt)
                 print(txt)
                 print('---------------')

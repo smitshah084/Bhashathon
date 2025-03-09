@@ -1,0 +1,10 @@
+{"time":"2025-03-08T20:09:46.933506696Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/data/Bhashathon/wandb/run-20250308_200946-3ti4rbqs/logs/debug-core.log"}
+{"time":"2025-03-08T20:09:47.035918487Z","level":"INFO","msg":"created new stream","id":"3ti4rbqs"}
+{"time":"2025-03-08T20:09:47.035954998Z","level":"INFO","msg":"stream: started","id":"3ti4rbqs"}
+{"time":"2025-03-08T20:09:47.035991938Z","level":"INFO","msg":"writer: Do: started","stream_id":"3ti4rbqs"}
+{"time":"2025-03-08T20:09:47.036007819Z","level":"INFO","msg":"handler: started","stream_id":"3ti4rbqs"}
+{"time":"2025-03-08T20:09:47.0360622Z","level":"INFO","msg":"sender: started","stream_id":"3ti4rbqs"}
+{"time":"2025-03-08T20:09:47.469767218Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-09T02:54:46.936881103Z","level":"INFO","msg":"stream: closing","id":"3ti4rbqs"}
+{"time":"2025-03-09T02:54:46.936912553Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-09T02:54:46.937359271Z","level":"INFO","msg":"Stopped system monitor"}

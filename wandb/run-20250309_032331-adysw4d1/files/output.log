@@ -1,0 +1,32 @@
+Training Progress:   0%|                                                                                                                          | 2/6200 [00:25<22:18:16, 12.96s/it]
+ITER:  0
+                                                                                                                                                                                      
+iter 0: loss 10.9756, time 10713.89ms, mfu -100.00%
+
+==================================================
+PERFORMANCE METRICS (iter 0):
+Training tokens/second: 47211.29
+Testing tokens/second: 0.00
+Parameter update time: 524.88ms (frequency: every 30 micro steps)
+Data loading time: 2.93ms per batch
+Train batch processing time: 339.10ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 3m 2s
+==================================================
+
+ITER:  1
+iter 1: loss 10.9663, time 9982.63ms, mfu -100.00%
+
+==================================================
+PERFORMANCE METRICS (iter 1):
+Training tokens/second: 47213.66
+Testing tokens/second: 0.00
+Parameter update time: 268.12ms (frequency: every 30 micro steps)
+Data loading time: 1.62ms per batch
+Train batch processing time: 335.29ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 2m 51s
+==================================================
+
+ITER:  2
+saving checkpoint to out

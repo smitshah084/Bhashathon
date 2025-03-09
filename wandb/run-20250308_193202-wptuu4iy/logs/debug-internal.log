@@ -1,0 +1,15 @@
+{"time":"2025-03-08T19:32:02.334644368Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/data/Bhashathon/wandb/run-20250308_193202-wptuu4iy/logs/debug-core.log"}
+{"time":"2025-03-08T19:32:02.437869522Z","level":"INFO","msg":"created new stream","id":"wptuu4iy"}
+{"time":"2025-03-08T19:32:02.437914303Z","level":"INFO","msg":"stream: started","id":"wptuu4iy"}
+{"time":"2025-03-08T19:32:02.437957233Z","level":"INFO","msg":"writer: Do: started","stream_id":"wptuu4iy"}
+{"time":"2025-03-08T19:32:02.438017255Z","level":"INFO","msg":"handler: started","stream_id":"wptuu4iy"}
+{"time":"2025-03-08T19:32:02.438049035Z","level":"INFO","msg":"sender: started","stream_id":"wptuu4iy"}
+{"time":"2025-03-08T19:32:02.80568516Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-08T19:32:12.083436715Z","level":"INFO","msg":"stream: closing","id":"wptuu4iy"}
+{"time":"2025-03-08T19:32:12.083471696Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-08T19:32:12.083976925Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-08T19:32:14.004049691Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-03-08T19:32:14.399921448Z","level":"INFO","msg":"handler: closed","stream_id":"wptuu4iy"}
+{"time":"2025-03-08T19:32:14.399944439Z","level":"INFO","msg":"writer: Close: closed","stream_id":"wptuu4iy"}
+{"time":"2025-03-08T19:32:14.399976039Z","level":"INFO","msg":"sender: closed","stream_id":"wptuu4iy"}
+{"time":"2025-03-08T19:32:14.39999043Z","level":"INFO","msg":"stream: closed","id":"wptuu4iy"}

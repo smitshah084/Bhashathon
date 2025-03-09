@@ -1,0 +1,11 @@
+{"time":"2025-03-08T19:52:18.812678809Z","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/data/Bhashathon/wandb/run-20250308_195218-ex3clcdk/logs/debug-core.log"}
+{"time":"2025-03-08T19:52:18.9151517Z","level":"INFO","msg":"created new stream","id":"ex3clcdk"}
+{"time":"2025-03-08T19:52:18.915186561Z","level":"INFO","msg":"stream: started","id":"ex3clcdk"}
+{"time":"2025-03-08T19:52:18.915243662Z","level":"INFO","msg":"handler: started","stream_id":"ex3clcdk"}
+{"time":"2025-03-08T19:52:18.915263813Z","level":"INFO","msg":"writer: Do: started","stream_id":"ex3clcdk"}
+{"time":"2025-03-08T19:52:18.915267843Z","level":"INFO","msg":"sender: started","stream_id":"ex3clcdk"}
+{"time":"2025-03-08T19:52:19.38437539Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-03-08T19:54:44.582913684Z","level":"INFO","msg":"stream: closing","id":"ex3clcdk"}
+{"time":"2025-03-08T19:54:44.582997596Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-03-08T19:54:44.583545686Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-03-08T19:54:45.623503698Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
