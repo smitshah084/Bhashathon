@@ -1,0 +1,42 @@
+{
+  "os": "Linux-6.8.0-1024-aws-x86_64-with-glibc2.39",
+  "python": "CPython 3.12.9",
+  "startedAt": "2025-03-09T18:48:21.046258Z",
+  "program": "/data/Bhashathon/train.py",
+  "codePath": "train.py",
+  "git": {
+    "remote": "https://github.com/smitshah084/Bhashathon.git",
+    "commit": "3d06bee8b25b907cf908081c251719d3e1375794"
+  },
+  "email": "smitshah084@gmail.com",
+  "root": "/data/Bhashathon",
+  "host": "ip-172-31-14-214",
+  "executable": "/data/miniconda/envs/aws_env/bin/python",
+  "codePathLocal": "train.py",
+  "cpu_count": 2,
+  "cpu_count_logical": 4,
+  "gpu": "NVIDIA A10G",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "30083776512",
+      "used": "13559844864"
+    }
+  },
+  "memory": {
+    "total": "16555126784"
+  },
+  "cpu": {
+    "count": 2,
+    "countLogical": 4
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A10G",
+      "memoryTotal": "24146608128",
+      "cudaCores": 10240,
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.4"
+}

@@ -1,0 +1,438 @@
+Training Progress:   0%|                                                                                                                          | 2/7000 [00:24<22:17:44, 11.47s/it]
+ITER:  5400
+                                                                                                                                                                                      
+iter 0: loss 4.1254, time 15471.40ms, mfu -100.00%
+
+==================================================
+PERFORMANCE METRICS (iter 0):
+Training tokens/second: 56972.16
+Testing tokens/second: 0.00
+Parameter update time: 585.95ms (frequency: every 30 micro steps)
+Data loading time: 17.55ms per batch
+Train batch processing time: 495.64ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 2m 31s
+==================================================
+
+ITER:  5401
+iter 1: loss 4.2080, time 8123.53ms, mfu -100.00%
+
+==================================================
+PERFORMANCE METRICS (iter 1):
+Training tokens/second: 56945.99
+Testing tokens/second: 0.00
+Parameter update time: 300.08ms (frequency: every 30 micro steps)
+Data loading time: 1.72ms per batch
+Train batch processing time: 382.50ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 2m 22s
+==================================================
+
+ITER:  5402
+iter 2: loss 4.1920, time 8660.90ms, mfu -100.00%
+
+==================================================
+PERFORMANCE METRICS (iter 2):
+Training tokens/second: 56946.88
+Testing tokens/second: 0.00
+Parameter update time: 204.80ms (frequency: every 30 micro steps)
+Data loading time: 1.71ms per batch
+Train batch processing time: 344.80ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 2m 13s
+==================================================
+
+ITER:  5403
+iter 3: loss 4.2077, time 8659.51ms, mfu -100.00%
+
+==================================================
+PERFORMANCE METRICS (iter 3):
+Training tokens/second: 56945.83
+Testing tokens/second: 0.00
+Parameter update time: 157.14ms (frequency: every 30 micro steps)
+Data loading time: 1.67ms per batch
+Train batch processing time: 271.18ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 2m 5s
+==================================================
+
+ITER:  5404
+iter 4: loss 4.2502, time 8659.03ms, mfu -100.00%
+
+==================================================
+PERFORMANCE METRICS (iter 4):
+Training tokens/second: 56951.53
+Testing tokens/second: 0.00
+Parameter update time: 128.56ms (frequency: every 30 micro steps)
+Data loading time: 1.67ms per batch
+Train batch processing time: 271.17ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 1m 56s
+==================================================
+
+ITER:  5405
+iter 5: loss 4.1836, time 8658.02ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 5):
+Training tokens/second: 56949.09
+Testing tokens/second: 0.00
+Parameter update time: 109.51ms (frequency: every 30 micro steps)
+Data loading time: 1.66ms per batch
+Train batch processing time: 271.17ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 1m 48s
+==================================================
+
+ITER:  5406
+iter 6: loss 4.2229, time 8659.64ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 6):
+Training tokens/second: 56952.67
+Testing tokens/second: 0.00
+Parameter update time: 95.90ms (frequency: every 30 micro steps)
+Data loading time: 1.67ms per batch
+Train batch processing time: 271.16ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 1m 39s
+==================================================
+
+ITER:  5407
+iter 7: loss 4.2180, time 8660.14ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 7):
+Training tokens/second: 56950.29
+Testing tokens/second: 0.00
+Parameter update time: 85.68ms (frequency: every 30 micro steps)
+Data loading time: 1.71ms per batch
+Train batch processing time: 271.17ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 1m 30s
+==================================================
+
+ITER:  5408
+iter 8: loss 4.2173, time 8660.34ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 8):
+Training tokens/second: 56952.95
+Testing tokens/second: 0.00
+Parameter update time: 77.74ms (frequency: every 30 micro steps)
+Data loading time: 1.74ms per batch
+Train batch processing time: 271.18ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 1m 22s
+==================================================
+
+ITER:  5409
+iter 9: loss 4.2536, time 8660.16ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 9):
+Training tokens/second: 56951.28
+Testing tokens/second: 0.00
+Parameter update time: 71.39ms (frequency: every 30 micro steps)
+Data loading time: 1.74ms per batch
+Train batch processing time: 271.18ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 1m 13s
+==================================================
+
+ITER:  5410
+iter 10: loss 4.2508, time 8659.46ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 10):
+Training tokens/second: 56950.96
+Testing tokens/second: 0.00
+Parameter update time: 66.19ms (frequency: every 30 micro steps)
+Data loading time: 1.65ms per batch
+Train batch processing time: 271.19ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 1m 4s
+==================================================
+
+ITER:  5411
+iter 11: loss 4.2294, time 8659.86ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 11):
+Training tokens/second: 56951.85
+Testing tokens/second: 0.00
+Parameter update time: 61.86ms (frequency: every 30 micro steps)
+Data loading time: 1.64ms per batch
+Train batch processing time: 271.20ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 0m 56s
+==================================================
+
+ITER:  5412
+iter 12: loss 4.2272, time 8659.23ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 12):
+Training tokens/second: 56952.91
+Testing tokens/second: 0.00
+Parameter update time: 58.19ms (frequency: every 30 micro steps)
+Data loading time: 1.67ms per batch
+Train batch processing time: 271.20ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 0m 47s
+==================================================
+
+ITER:  5413
+iter 13: loss 4.1792, time 8659.59ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 13):
+Training tokens/second: 56951.27
+Testing tokens/second: 0.00
+Parameter update time: 55.05ms (frequency: every 30 micro steps)
+Data loading time: 1.66ms per batch
+Train batch processing time: 271.20ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 0m 38s
+==================================================
+
+ITER:  5414
+iter 14: loss 4.2369, time 8659.00ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 14):
+Training tokens/second: 56951.86
+Testing tokens/second: 0.00
+Parameter update time: 52.33ms (frequency: every 30 micro steps)
+Data loading time: 1.66ms per batch
+Train batch processing time: 271.20ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 0m 30s
+==================================================
+
+ITER:  5415
+iter 15: loss 4.2039, time 8659.66ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 15):
+Training tokens/second: 56952.28
+Testing tokens/second: 0.00
+Parameter update time: 49.95ms (frequency: every 30 micro steps)
+Data loading time: 1.65ms per batch
+Train batch processing time: 271.19ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 0m 21s
+==================================================
+
+ITER:  5416
+iter 16: loss 4.2389, time 8659.32ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 16):
+Training tokens/second: 56951.48
+Testing tokens/second: 0.00
+Parameter update time: 47.84ms (frequency: every 30 micro steps)
+Data loading time: 1.69ms per batch
+Train batch processing time: 271.18ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 0m 13s
+==================================================
+
+ITER:  5417
+iter 17: loss 4.1895, time 8659.18ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 17):
+Training tokens/second: 56952.76
+Testing tokens/second: 0.00
+Parameter update time: 45.97ms (frequency: every 30 micro steps)
+Data loading time: 1.63ms per batch
+Train batch processing time: 271.18ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: 0h 0m 4s
+==================================================
+
+ITER:  5418
+iter 18: loss 4.2068, time 8659.19ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 18):
+Training tokens/second: 56955.05
+Testing tokens/second: 0.00
+Parameter update time: 44.30ms (frequency: every 30 micro steps)
+Data loading time: 1.69ms per batch
+Train batch processing time: 271.18ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 59m 55s
+==================================================
+
+ITER:  5419
+iter 19: loss 4.1788, time 8659.78ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 19):
+Training tokens/second: 56954.14
+Testing tokens/second: 0.00
+Parameter update time: 42.80ms (frequency: every 30 micro steps)
+Data loading time: 1.72ms per batch
+Train batch processing time: 271.19ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 59m 47s
+==================================================
+
+ITER:  5420
+iter 20: loss 4.1883, time 8658.34ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 20):
+Training tokens/second: 56958.40
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.74ms per batch
+Train batch processing time: 271.16ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 59m 38s
+==================================================
+
+ITER:  5421
+iter 21: loss 4.2389, time 8658.82ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 21):
+Training tokens/second: 56957.99
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.74ms per batch
+Train batch processing time: 271.16ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 59m 29s
+==================================================
+
+ITER:  5422
+iter 22: loss 4.2023, time 8659.09ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 22):
+Training tokens/second: 56956.59
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.71ms per batch
+Train batch processing time: 271.16ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 59m 21s
+==================================================
+
+ITER:  5423
+iter 23: loss 4.1619, time 8658.89ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 23):
+Training tokens/second: 56956.03
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.67ms per batch
+Train batch processing time: 271.16ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 59m 12s
+==================================================
+
+ITER:  5424
+iter 24: loss 4.2770, time 8658.74ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 24):
+Training tokens/second: 56956.85
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.66ms per batch
+Train batch processing time: 271.18ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 59m 4s
+==================================================
+
+ITER:  5425
+iter 25: loss 4.2098, time 8658.44ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 25):
+Training tokens/second: 56958.44
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.64ms per batch
+Train batch processing time: 271.16ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 58m 55s
+==================================================
+
+ITER:  5426
+iter 26: loss 4.2382, time 8659.17ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 26):
+Training tokens/second: 56963.22
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.68ms per batch
+Train batch processing time: 271.14ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 58m 46s
+==================================================
+
+ITER:  5427
+iter 27: loss 4.1438, time 8658.50ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 27):
+Training tokens/second: 56962.67
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.68ms per batch
+Train batch processing time: 271.12ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 58m 38s
+==================================================
+
+ITER:  5428
+iter 28: loss 4.2591, time 8659.24ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 28):
+Training tokens/second: 56961.68
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.67ms per batch
+Train batch processing time: 271.13ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 58m 29s
+==================================================
+
+ITER:  5429
+iter 29: loss 4.2264, time 8659.04ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 29):
+Training tokens/second: 56962.55
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.67ms per batch
+Train batch processing time: 271.12ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 58m 20s
+==================================================
+
+ITER:  5430
+iter 30: loss 4.1883, time 8659.04ms, mfu 15.55%
+
+==================================================
+PERFORMANCE METRICS (iter 30):
+Training tokens/second: 56961.52
+Testing tokens/second: 0.00
+Parameter update time: 14.21ms (frequency: every 30 micro steps)
+Data loading time: 1.63ms per batch
+Train batch processing time: 271.13ms
+Test batch processing time: 0.00ms
+Estimated time to train on 9.1M tokens: -1h 58m 12s
+==================================================
+
+ITER:  5431
+saving checkpoint to out

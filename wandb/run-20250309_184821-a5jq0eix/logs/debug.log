@@ -1,0 +1,24 @@
+2025-03-09 18:48:21,042 INFO    MainThread:7494 [wandb_setup.py:_flush():67] Current SDK version is 0.19.8
+2025-03-09 18:48:21,042 INFO    MainThread:7494 [wandb_setup.py:_flush():67] Configure stats pid to 7494
+2025-03-09 18:48:21,042 INFO    MainThread:7494 [wandb_setup.py:_flush():67] Loading settings from /home/ubuntu/.config/wandb/settings
+2025-03-09 18:48:21,042 INFO    MainThread:7494 [wandb_setup.py:_flush():67] Loading settings from /data/Bhashathon/wandb/settings
+2025-03-09 18:48:21,042 INFO    MainThread:7494 [wandb_setup.py:_flush():67] Loading settings from environment variables
+2025-03-09 18:48:21,042 INFO    MainThread:7494 [wandb_init.py:setup_run_log_directory():647] Logging user logs to /data/Bhashathon/wandb/run-20250309_184821-a5jq0eix/logs/debug.log
+2025-03-09 18:48:21,042 INFO    MainThread:7494 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to /data/Bhashathon/wandb/run-20250309_184821-a5jq0eix/logs/debug-internal.log
+2025-03-09 18:48:21,042 INFO    MainThread:7494 [wandb_init.py:init():761] calling init triggers
+2025-03-09 18:48:21,043 INFO    MainThread:7494 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'previous_steps': 5400, 'out_dir': 'out', 'eval_interval': 100, 'log_interval': 1, 'eval_iters': 10, 'eval_only': False, 'always_save_checkpoint': True, 'init_from': 'resume', 'wandb_log': True, 'wandb_project': 'owt', 'wandb_run_name': 'gpt2', 'dataset_dir': 'bin_data', 'batch_size': 16, 'gradient_accumulation_steps': 30, 'block_size': 1024, 'n_layer': 12, 'n_head': 12, 'n_embd': 768, 'dropout': 0.0, 'bias': False, 'learning_rate': 0.0006, 'epoch': 2, 'max_iters': 7000, 'weight_decay': 0.1, 'beta1': 0.9, 'beta2': 0.95, 'grad_clip': 1.0, 'decay_lr': True, 'warmup_iters': 2000, 'lr_decay_iters': 7000, 'min_lr': 6e-05, 'backend': 'nccl', 'device': 'cuda', 'dtype': 'bfloat16', 'compile': True, '_wandb': {}}
+2025-03-09 18:48:21,043 INFO    MainThread:7494 [wandb_init.py:init():784] starting backend
+2025-03-09 18:48:21,043 INFO    MainThread:7494 [wandb_init.py:init():788] sending inform_init request
+2025-03-09 18:48:21,046 INFO    MainThread:7494 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-03-09 18:48:21,046 INFO    MainThread:7494 [wandb_init.py:init():798] backend started and connected
+2025-03-09 18:48:21,047 INFO    MainThread:7494 [wandb_init.py:init():891] updated telemetry
+2025-03-09 18:48:21,051 INFO    MainThread:7494 [wandb_init.py:init():915] communicating run to backend with 90.0 second timeout
+2025-03-09 18:48:21,968 INFO    MainThread:7494 [wandb_init.py:init():985] run resumed
+2025-03-09 18:48:21,969 INFO    MainThread:7494 [wandb_init.py:init():990] starting run threads in backend
+2025-03-09 18:48:22,023 INFO    MainThread:7494 [wandb_run.py:_console_start():2375] atexit reg
+2025-03-09 18:48:22,023 INFO    MainThread:7494 [wandb_run.py:_redirect():2227] redirect: wrap_raw
+2025-03-09 18:48:22,023 INFO    MainThread:7494 [wandb_run.py:_redirect():2292] Wrapping output streams.
+2025-03-09 18:48:22,023 INFO    MainThread:7494 [wandb_run.py:_redirect():2315] Redirects installed.
+2025-03-09 18:48:22,024 INFO    MainThread:7494 [wandb_init.py:init():1032] run started, returning control to user process
+2025-03-09 18:53:00,577 INFO    MsgRouterThr:7494 [mailbox.py:close():129] Closing mailbox, abandoning 1 handles.

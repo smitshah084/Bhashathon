@@ -11,11 +11,11 @@ from torch.distributed import init_process_group, destroy_process_group
 from collections import deque
 from model import GPTConfig, GPT
 import glob
-
+previous_steps = 2800 + 900 + 300 + 200 + 1200 + 1442
 out_dir = 'out'
 eval_interval = 100
 log_interval = 1
-eval_iters = 3
+eval_iters = 10
 eval_only = False # if True, script exits right after the first eval
 always_save_checkpoint = True # if True, always save a checkpoint after each eval
 init_from = 'resume' # 'scratch' or 'resume' or 'gpt2*'
@@ -37,9 +37,9 @@ dropout = 0.0 # for pretraining 0 is good, for finetuning try 0.1+
 bias = False # do we use bias inside LayerNorm and Linear layers?
 # adamw optimizer
 learning_rate = 6e-4 # max learning rate
-epoch = 1
+epoch = 2
 max_iters = (6200) * epoch # total number of training iterations
-
+max_iters -= previous_steps
 weight_decay = 1e-1
 beta1 = 0.9
 beta2 = 0.95
@@ -95,7 +95,7 @@ print(f"tokens per iteration will be: {tokens_per_iter:,}")
 
 if master_process:
     os.makedirs(out_dir, exist_ok=True)
-torch.manual_seed(1337 + seed_offset)
+
 torch.backends.cuda.matmul.allow_tf32 = True # allow tf32 on matmul
 torch.backends.cudnn.allow_tf32 = True # allow tf32 on cudnn
 device_type = 'cuda' if 'cuda' in device else 'cpu' # for later use in torch.autocast
@@ -113,7 +113,7 @@ import time
 
 class DataPrefetcher:
     def __init__(self, split, batch_size, block_size, data_dir, device, metrics, 
-                 max_prefetch=30, language=None):
+                 max_prefetch=5, language=None):
         self.split = split
         self.batch_size = batch_size
         self.block_size = block_size
@@ -306,7 +306,7 @@ if init_from == 'scratch':
 elif init_from == 'resume':
     print(f"Resuming training from {out_dir}")
     # resume training from a checkpoint.
-    ckpt_path = os.path.join(out_dir, 'ckpt_inter.pt')
+    ckpt_path = os.path.join(out_dir, 'ckpt.pt')
     checkpoint = torch.load(ckpt_path, map_location=device)
     checkpoint_model_args = checkpoint['model_args']
     # force these config attributes to be equal otherwise we can't even resume training
@@ -425,9 +425,9 @@ def print_performance_metrics(iter_num, total_tokens_processed):
     print(f"Estimated time to train on 9.1M tokens: {int(hours)}h {int(minutes)}m {int(seconds)}s")
     print("="*50 + "\n")
 
-
 # learning rate decay scheduler (cosine with warmup)
 def get_lr(it):
+    it += previous_steps
     # 1) linear warmup for warmup_iters steps
     if it < warmup_iters:
         return learning_rate * (it + 1) / (warmup_iters + 1)
@@ -443,7 +443,7 @@ def get_lr(it):
 # logging
 if wandb_log and master_process:
     import wandb
-    wandb.init(project=wandb_project, name=wandb_run_name, config=config)
+    wandb.init(project=wandb_project, name=wandb_run_name, config=config,id="a5jq0eix", resume="allow")
 
 total_tokens_processed = 0
 
@@ -460,7 +460,7 @@ running_mfu = -1.0
 best_val_loss = 1e-9
 try:
     for iter_num in tqdm(range(max_iters), desc="Training Progress", dynamic_ncols=True):
-        print("ITER: ",iter_num)
+        print("ITER: ",iter_num+previous_steps)
         # Determine and set the learning rate for this iteration
         lr = get_lr(iter_num) if decay_lr else learning_rate
         for param_group in optimizer.param_groups:
@@ -530,7 +530,7 @@ try:
             
             # Get next batch with timing
             data_load_start = time.time()
-            X, Y = get_batch('train')
+            X, Y = get_batch('train') #,language='odia')
             data_load_end = time.time()
             metrics['data_load_time'].append(data_load_end - data_load_start)
             

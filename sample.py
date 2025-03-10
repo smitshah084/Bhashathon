@@ -122,16 +122,18 @@ starts = [
     "ಇಲ್ಲಿನ ವಾತಾವರಣ ಬಹಳ ಸಂತೋಷಕರವಾಗಿದೆ "
 ]
 
-for start in starts:
-    start_ids = sp.encode_as_ids(start)
-    x = (torch.tensor(start_ids, dtype=torch.long, device=device)[None, ...])
-    print(start,end=" # ")
-    # run generation
-    with torch.no_grad():
-        with ctx:
-            for k in range(num_samples):
-                y = model.generate(x, max_new_tokens, temperature=temperature, top_k=top_k)
-                txt = sp.decode_ids(y[0].tolist())
-                txt = str(txt)
-                print(txt)
-                print('---------------')
+with open("output.txt", "w", encoding="utf-8") as f:
+    for start in starts:
+        start_ids = sp.encode_as_ids(start)
+        x = (torch.tensor(start_ids, dtype=torch.long, device=device)[None, ...])
+        print(start,end=" # ")
+        # run generation
+        with torch.no_grad():
+            with ctx:
+                for k in range(num_samples):
+                    y = model.generate(x, max_new_tokens, temperature=temperature, top_k=top_k)
+                    txt = sp.decode_ids(y[0].tolist())
+                    txt = str(txt)
+                    f.write(txt + "\n")
+                    f.write("---------------\n")
+
