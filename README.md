@@ -109,7 +109,7 @@ Custom GPT-2 implementation in **PyTorch**:
 ## 🏁 Run Instructions
 
 
-read replicate_results.md for : 
+read [replicate_results.md](replicate_results.md) for : 
 1. Train from scratch
 2. Inference
 3. Tokenizer Training
